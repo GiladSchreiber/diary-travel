@@ -1,0 +1,15 @@
+@import "../main.scss";
+
+::-webkit-scrollbar {
+  width: 0;
+}
+
+.diamond {
+  fill: none;
+  stroke: $lightColor;
+  stroke-miterlimit: 10;
+}
+
+.opacity {
+  opacity: 0.3;
+}

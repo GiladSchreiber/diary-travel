@@ -1,0 +1,173 @@
+@import "../main.scss";
+
+.TextFrame {
+  position: absolute;
+  right: 0;
+  width: 50%;
+  height: 100vh;
+  font-family: "Henri Regular";
+  font-size: 16pt;
+  line-height: 35pt;
+}
+
+.content {
+  overflow-y: scroll;
+  height: 100vh;
+  background-color: $backgroundColor;
+  padding: 0 10%;
+  transition: margin 1s ease-out;
+  z-index: 1;
+  margin: 0 5% 0 0;
+}
+
+.chapter {
+  padding-bottom: 30px;
+  line-height: 35pt;
+  direction: rtl;
+  z-index: 1;
+  white-space: pre-wrap;
+}
+
+span {
+  padding-left: 8px;
+}
+
+span.active {
+  background-color: transparent;
+  animation: fadeBackground 2s 1;
+  animation-timing-function: ease-in-out;
+}
+
+@keyframes fadeBackground {
+  0% {
+    background-color: transparent;
+  }
+  10% {
+    background-color: $shineColor;
+  }
+  100% {
+    background-color: transparent;
+  }
+}
+
+.chapterContent {
+  text-indent: 100px;
+}
+.scrollBar {
+  position: absolute;
+  width: 50px;
+  bottom: 0;
+  right: 0;
+  height: 100%;
+  // background-image: url("./waterTexture.jpg");
+  // background-blend-mode: multiply;
+  background-color: $lightColor;
+  cursor: pointer;
+  z-index: 2;
+}
+
+.playButton {
+  position: absolute;
+  height: 20px;
+  width: 20px;
+  top: 25px;
+  left: 20px;
+  background-repeat: no-repeat;
+  background-size: contain;
+  cursor: pointer;
+  z-index: 0;
+}
+
+.thumb {
+  position: relative;
+  right: 20%;
+  height: 0;
+  width: 60%;
+  background-color: $midColor;
+}
+
+.marker {
+  position: absolute;
+  right: 20%;
+  height: 5px;
+  width: 60%;
+  top: 0;
+  background-color: $shineColor;
+}
+
+div.sticky {
+  position: sticky;
+  background-color: $backgroundColor;
+  line-height: 25pt;
+  padding: 10pt 0;
+  color: rgb(100, 100, 100);
+  top: -1px;
+  font-family: "Henri Regular";
+  font-size: 12pt;
+  border-bottom: 1px solid $midColor;
+  z-index: 1;
+}
+
+div.details {
+  display: flex;
+  position: relative;
+  justify-content: space-between;
+  direction: ltr;
+}
+
+.movingDate {
+  position: relative;
+  height: 100%;
+  bottom: 3px;
+  left: 8px;
+  color: white;
+  font-family: "Henri Regular";
+  font-size: 12pt;
+  z-index: 1;
+  direction: ltr;
+}
+
+.buttonContainer {
+  position: absolute;
+  height: 100%;
+  width: 5%;
+  background-color: $darkColor;
+  transition: left 1s ease-out;
+  cursor: pointer;
+  z-index: 1;
+}
+
+.buttonContainerRight {
+  position: absolute;
+  height: 100%;
+  width: 5%;
+  background-color: $lightColor;
+  transition: right 1s ease-out;
+  cursor: pointer;
+  z-index: 1;
+}
+
+.playIcon {
+  padding: 0 3px;
+  width: 40px;
+  text-align: center;
+  direction: rtl;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  &:active {
+    color: white;
+  }
+}
+
+.icon {
+  color: $midColor;
+  padding: 0 3px;
+  cursor: pointer;
+  align-items: center;
+  justify-content: center;
+  &:active {
+    color: white;
+  }
+}

@@ -1,0 +1,49 @@
+@import "../main.scss";
+
+.searchContainer {
+  position: absolute;
+  text-align: right;
+  background-color: transparent;
+  font-size: 18pt;
+  top: 40px;
+  height: 40px;
+  right: 40px;
+  display: flex;
+  flex-direction: row-reverse;
+  border: 1px solid $lightColor;
+  border-left: 0;
+  border-right: 0;
+}
+
+.search {
+  font-family: "Henri Regular";
+  background-color: transparent;
+  text-align: right;
+  color: $backgroundColor;
+  width: 100px;
+  padding: 0 10px;
+  font-size: 18pt;
+  vertical-align: middle;
+  border: none;
+  &:focus {
+    outline: none;
+  }
+}
+
+.searchIcon {
+  color: $lightColor;
+  padding: 0 3px;
+  width: 40px;
+  text-align: center;
+  direction: rtl;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  &:active {
+    color: white;
+  }
+  &.icons {
+    color: $lightColor;
+  }
+}
