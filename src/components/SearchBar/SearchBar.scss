@@ -16,7 +16,7 @@
 }
 
 .search {
-  font-family: "Henri Regular";
+  font-family: "Arbel Regular";
   background-color: transparent;
   text-align: right;
   color: $backgroundColor;
@@ -30,6 +30,11 @@
   }
 }
 
+.infoSearch {
+  background-color: $infoBackground;
+  opacity: 0.3;
+}
+
 .searchIcon {
   color: $lightColor;
   padding: 0 3px;
@@ -40,10 +45,25 @@
   display: flex;
   align-items: center;
   justify-content: center;
-  &:active {
-    color: white;
-  }
   &.icons {
+    color: $lightColor;
+  }
+}
+
+.active {
+  background-color: lightColor;
+  animation: fadeColor 2s 1;
+  animation-timing-function: ease-in-out;
+}
+
+@keyframes fadeColor {
+  0% {
+    color: $lightColor;
+  }
+  10% {
+    color: $shineColor;
+  }
+  100% {
     color: $lightColor;
   }
 }

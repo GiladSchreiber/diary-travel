@@ -1,0 +1,21 @@
+@import "../main.scss";
+
+.iconContainer {
+  position: absolute;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  right: 80px;
+  top: 20px;
+}
+
+.icon {
+  color: $midColor;
+  padding: 0 3px;
+  cursor: pointer;
+  align-items: center;
+  justify-content: center;
+  &:active {
+    color: white;
+  }
+}

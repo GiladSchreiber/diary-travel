@@ -4,9 +4,13 @@
   position: fixed;
   width: 50%;
   height: 45%;
-  background-color: $lightColor;
   left: 0;
   bottom: 0;
+  cursor: grab;
+  z-index: 1;
+  &:active {
+    cursor: grabbing;
+  }
 }
 
 .EmotionsFrame {
@@ -16,6 +20,24 @@
   background-color: $midColor;
   left: 0;
   top: 0;
+  text-align: left;
+}
+
+.textFrame {
+  z-index: 4;
+  position: fixed;
+  background-color: $midColor;
+  right: 0;
+  width: 50%;
+  height: 100vh;
+}
+
+.scrollBarContainer {
+  z-index: 6;
+  height: 100vh;
+  position: fixed;
+  width: 50px;
+  right: 0;
 }
 
 ::-webkit-scrollbar {
@@ -29,24 +51,68 @@ body {
 
 .hoverBox {
   position: absolute;
-  width: 160px;
-  top: 35%;
-  right: 40px;
-  font-family: "Henry Regular";
-  color: $backgroundColor;
-  background-color: transparent;
-  transition: opacity 0.3s linear;
-  opacity: 0;
-  border: 1px solid $shineColor;
+  width: 180px;
+  top: 25%;
+  font-family: "Arbel Regular";
+  color: black;
+  background-color: $backgroundDarkColor;
+  transition: left 0.3s linear;
+  z-index: -3;
+  padding: 10px;
+}
+
+.hoverHeader {
+  border: 1px solid $midColor;
   border-right: 0;
   border-left: 0;
-  padding: 20px 0;
+  line-height: 16pt;
+  padding: 20px 10px 20px 0;
 }
 
-.fade {
-  opacity: 1;
+.hoverPlace {
+  padding: 10px 0;
+  direction: ltr;
 }
 
-.lineContainer {
-  position: fixed;
+.hoverEmotions {
+  padding: 10px 10px 10px 0;
+  // line-height: 20px;
+  font-size: 11pt;
+}
+
+.hoverDate {
+  padding: 10px 0 0 0;
+  direction: ltr;
+}
+
+.infoContainer {
+  position: absolute;
+  background-color: transparent;
+  top: 40px;
+  height: 40px;
+  width: 40px;
+  left: 40px;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border: 1px solid $lightColor;
+  border-left: 0;
+  border-right: 0;
+  padding: 0 3px;
+  transition: border 0.3s linear;
+  &:hover {
+    border: 1px solid $shineColor;
+    border-left: 0;
+    border-right: 0;
+  }
+}
+
+.infoIcon {
+  color: $lightColor;
+  transition: color 0.3s linear;
+  z-index: 10;
+  &:hover {
+    color: $shineColor;
+  }
 }

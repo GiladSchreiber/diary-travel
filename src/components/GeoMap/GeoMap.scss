@@ -3,19 +3,29 @@
 .mapContainer {
   width: 100%;
   height: 100%;
-  // background-image: url("./waterTexture.jpg");
-  // background-blend-mode: multiply;
+  background-image: url("./waves.png");
+  background-blend-mode: multiply;
+  background-size: cover;
   background-color: $lightColor;
 }
 
 .rsm-geography {
   display: inline-block;
   vertical-align: middle;
-  fill: $midColor;
+  fill: $midDarkColor;
   stroke: $lightColor;
   stroke-width: 0.1px;
 }
 
 :focus {
   outline: none;
+}
+
+.infoMap {
+  border-top: 1px solid $lightColor;
+}
+
+.infoBoxMap {
+  top: 20px;
+  right: 30px;
 }

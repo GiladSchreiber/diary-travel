@@ -1,0 +1,61 @@
+@import "../main.scss";
+
+.scrollBar {
+  position: absolute;
+  width: 50px;
+  bottom: 0;
+  right: 0;
+  height: 100%;
+  background-color: $lightColor;
+  cursor: pointer;
+  z-index: 2;
+}
+
+.thumb {
+  position: relative;
+  right: 20%;
+  height: 0;
+  width: 60%;
+  background-color: $midColor;
+  cursor: pointer;
+}
+
+.marker {
+  position: absolute;
+  right: 20%;
+  height: 5px;
+  width: 60%;
+  top: 0;
+  background-color: $shineOpacityColor;
+  animation: fadeIn 0.3s 1;
+  animation-timing-function: ease-in-out;
+  opacity: 1;
+}
+
+#active {
+  background-color: $shineColor;
+}
+
+@keyframes fadeIn {
+  0% {
+    opacity: 0;
+  }
+  100% {
+    opacity: 1;
+  }
+}
+
+.infoScrollBar {
+  border-left: 1px solid $lightColor;
+}
+
+.movingDate {
+  position: absolute;
+  right: 105%;
+  width: 60%;
+  color: $shineColor;
+  writing-mode: vertical-rl;
+  text-orientation: mixed;
+  font-family: "Arbel Regular";
+  font-size: 16pt;
+}

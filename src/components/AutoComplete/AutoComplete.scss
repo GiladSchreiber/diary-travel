@@ -1,0 +1,123 @@
+@import "../main.scss";
+
+.autoCompleteContainer {
+  position: absolute;
+  text-align: right;
+  background-color: transparent;
+  font-size: 18pt;
+  top: 40px;
+  width: 150px;
+  height: 40px;
+  right: 6%;
+  display: flex;
+  flex-direction: row-reverse;
+  border: 1px solid $lightColor;
+  border-left: 0;
+  border-right: 0;
+  z-index: 5;
+}
+
+.react-autosuggest__container {
+  font-family: "Arbel Regular";
+  background-color: transparent;
+  text-align: right;
+  border: none;
+  padding: 12px 0;
+  font-size: 14pt;
+
+  &:focus {
+    outline: none;
+  }
+}
+
+.react-autosuggest__input {
+  font-family: "Arbel Regular";
+  background-color: transparent;
+  text-align: right;
+  color: $backgroundColor;
+  width: 90%;
+  padding: 0 10px;
+  font-size: 14pt;
+  vertical-align: middle;
+  border: none;
+  &:focus {
+    outline: none;
+  }
+}
+
+.react-autosuggest__input--open {
+  border-bottom-left-radius: 0;
+  border-bottom-right-radius: 0;
+}
+
+.react-autosuggest__suggestions-container {
+  display: none;
+}
+
+.react-autosuggest__suggestions-container--open {
+  display: block;
+  position: absolute;
+  top: 40px;
+  width: 80%;
+  background-color: $lightColor;
+  font-family: "Arbel Regular";
+  font-size: 14pt;
+  border-bottom-left-radius: 4px;
+  border-bottom-right-radius: 4px;
+  color: $midDarkColor;
+  z-index: 2;
+}
+
+.react-autosuggest__suggestions-list {
+  margin: 0;
+  padding: 0;
+  list-style-type: none;
+}
+
+.react-autosuggest__suggestion {
+  cursor: pointer;
+  padding: 10px 20px;
+}
+
+.react-autosuggest__suggestion--highlighted {
+  background-color: $darkColor;
+}
+
+:placeholder-shown {
+  color: $lightColor;
+}
+
+::-webkit-input-placeholder {
+  color: $lightColor;
+}
+
+.searchIcon {
+  color: $lightColor;
+  padding: 0 3px;
+  text-align: center;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  &.icons {
+    color: $lightColor;
+  }
+}
+
+.active {
+  background-color: lightColor;
+  animation: fadeColor 2s 1;
+  animation-timing-function: ease-in-out;
+}
+
+@keyframes fadeColor {
+  0% {
+    color: $lightColor;
+  }
+  10% {
+    color: $shineColor;
+  }
+  100% {
+    color: $lightColor;
+  }
+}

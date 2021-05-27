@@ -1,23 +1,20 @@
 @import "../main.scss";
 
-.TextFrame {
-  position: absolute;
-  right: 0;
-  width: 50%;
-  height: 100vh;
-  font-family: "Henri Regular";
+.TextContainer {
+  width: 100%;
+  font-family: "Arbel Regular";
   font-size: 16pt;
   line-height: 35pt;
+  z-index: 5;
 }
 
 .content {
   overflow-y: scroll;
   height: 100vh;
   background-color: $backgroundColor;
-  padding: 0 10%;
+  padding: 0 15% 0 10%;
   transition: margin 1s ease-out;
   z-index: 1;
-  margin: 0 5% 0 0;
 }
 
 .chapter {
@@ -38,6 +35,10 @@ span.active {
   animation-timing-function: ease-in-out;
 }
 
+span.searched {
+  background-color: $shineOpacityColor;
+}
+
 @keyframes fadeBackground {
   0% {
     background-color: transparent;
@@ -50,51 +51,6 @@ span.active {
   }
 }
 
-.chapterContent {
-  text-indent: 100px;
-}
-.scrollBar {
-  position: absolute;
-  width: 50px;
-  bottom: 0;
-  right: 0;
-  height: 100%;
-  // background-image: url("./waterTexture.jpg");
-  // background-blend-mode: multiply;
-  background-color: $lightColor;
-  cursor: pointer;
-  z-index: 2;
-}
-
-.playButton {
-  position: absolute;
-  height: 20px;
-  width: 20px;
-  top: 25px;
-  left: 20px;
-  background-repeat: no-repeat;
-  background-size: contain;
-  cursor: pointer;
-  z-index: 0;
-}
-
-.thumb {
-  position: relative;
-  right: 20%;
-  height: 0;
-  width: 60%;
-  background-color: $midColor;
-}
-
-.marker {
-  position: absolute;
-  right: 20%;
-  height: 5px;
-  width: 60%;
-  top: 0;
-  background-color: $shineColor;
-}
-
 div.sticky {
   position: sticky;
   background-color: $backgroundColor;
@@ -102,7 +58,7 @@ div.sticky {
   padding: 10pt 0;
   color: rgb(100, 100, 100);
   top: -1px;
-  font-family: "Henri Regular";
+  font-family: "Arbel Regular";
   font-size: 12pt;
   border-bottom: 1px solid $midColor;
   z-index: 1;
@@ -115,59 +71,53 @@ div.details {
   direction: ltr;
 }
 
-.movingDate {
-  position: relative;
-  height: 100%;
-  bottom: 3px;
-  left: 8px;
-  color: white;
-  font-family: "Henri Regular";
-  font-size: 12pt;
-  z-index: 1;
-  direction: ltr;
-}
-
-.buttonContainer {
+.infoText {
   position: absolute;
+  width: 100%;
   height: 100%;
-  width: 5%;
-  background-color: $darkColor;
-  transition: left 1s ease-out;
-  cursor: pointer;
-  z-index: 1;
+  z-index: 9;
+  background-color: $infoBackgroundDarker;
+  border-left: 1px solid $lightColor;
+  height: 100%;
 }
 
-.buttonContainerRight {
+.stickyContainer {
+  padding: 0 15% 0 10%;
+}
+.infoSticky {
+  position: sticky;
+  height: 93px;
+  top: -1px;
+  border-bottom: 1px solid $lightColor;
+  z-index: 1;
+  line-height: 25pt;
+}
+
+.infoBoxScrollBar {
+  bottom: 10%;
+  right: 50px;
+}
+
+.infoBoxDetails {
+  bottom: 40%;
+  right: 250px;
+}
+
+.logo {
   position: absolute;
-  height: 100%;
-  width: 5%;
-  background-color: $lightColor;
-  transition: right 1s ease-out;
-  cursor: pointer;
-  z-index: 1;
+  width: 340px;
+  height: 70px;
+  top: 30px;
+  right: 80px;
+  background-image: url("./logo.png");
+  background-size: contain;
+  background-repeat: no-repeat;
 }
 
-.playIcon {
-  padding: 0 3px;
-  width: 40px;
-  text-align: center;
-  direction: rtl;
-  cursor: pointer;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  &:active {
-    color: white;
-  }
-}
-
-.icon {
-  color: $midColor;
-  padding: 0 3px;
-  cursor: pointer;
-  align-items: center;
-  justify-content: center;
-  &:active {
-    color: white;
-  }
+.brief {
+  font-family: "Arbel Regular";
+  position: absolute;
+  color: $darkColor;
+  top: 100px;
+  left: 80px;
 }

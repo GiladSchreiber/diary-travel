@@ -1,0 +1,52 @@
+{
+  "emotions": [
+    {
+      "type": "expectation",
+      "coord": [380, 230],
+      "offset": [40, -20],
+      "hebrewLabel": "ציפייה"
+    },
+    {
+      "type": "happiness",
+      "coord": [200, 645],
+      "offset": [-20, 20],
+      "hebrewLabel": "אושר"
+    },
+    {
+      "type": "trust",
+      "coord": [380, 830],
+      "offset": [20, 40],
+      "hebrewLabel": "אמון"
+    },
+    {
+      "type": "fear",
+      "coord": [615, 830],
+      "offset": [30, 40],
+      "hebrewLabel": "פחד"
+    },
+    {
+      "type": "surprise",
+      "coord": [200, 415],
+      "offset": [-20, 0],
+      "hebrewLabel": "הפתעה"
+    },
+    {
+      "type": "sadness",
+      "coord": [615, 230],
+      "offset": [40, -20],
+      "hebrewLabel": "עצב"
+    },
+    {
+      "type": "disgust",
+      "coord": [800, 645],
+      "offset": [80, 20],
+      "hebrewLabel": "גועל"
+    },
+    {
+      "type": "anger",
+      "coord": [800, 415],
+      "offset": [80, 0],
+      "hebrewLabel": "כעס"
+    }
+  ]
+}
