@@ -30,13 +30,15 @@ class ScrollBar extends React.Component {
   };
 
   render() {
-    const markers = Object.keys(this.props.searchIndices).map((i) => {
+    const markers = this.props.searchIndices.map((i) => {
       return (
         <div
           className="marker"
           style={{ top: this.state.chaptersTops[i] + "%" }}
-          onMouseEnter={() => this.props.setHover(i)}
-          onMouseOut={() => this.props.setHover(-1)}
+          onMouseEnter={() =>
+            this.props.setHover(i, this.state.chaptersTops[i])
+          }
+          onMouseOut={() => this.props.setHover(-1, this.state.chaptersTops[i])}
         ></div>
       );
     });
@@ -50,17 +52,9 @@ class ScrollBar extends React.Component {
       <div></div>
     );
 
-    // var hoverDate = "";
     var top = -10;
     if (this.props.hoverId >= 0) {
-      const hoverChapter = this.props.chapters[this.props.hoverId];
       top = this.state.chaptersTops[this.props.hoverId];
-      // hoverDate =
-      //   hoverChapter.date.day +
-      //   "." +
-      //   hoverChapter.date.month +
-      //   "." +
-      //   hoverChapter.date.year;
     }
 
     return (
@@ -75,9 +69,6 @@ class ScrollBar extends React.Component {
             className="thumb"
             style={{ height: this.props.scrollPos + "%" }}
           ></div>
-          {/* <div className="movingDate" style={{ top: top - 14 + "%" }}>
-            {hoverDate}
-          </div> */}
           <div
             className="marker"
             id="active"

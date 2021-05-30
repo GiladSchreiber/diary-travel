@@ -140,6 +140,7 @@ class TextFrame extends React.Component {
         });
 
         const dateString = date.day + "." + date.month + "." + date.year;
+        const placeString = place.city + ", " + place.country;
         return (
           <div
             key={"chapter" + index}
@@ -148,11 +149,11 @@ class TextFrame extends React.Component {
           >
             <div className="sticky" id={index}>
               <div className="details">
-                <div>{dateString}</div>
-                <div>{song + " | " + artist} </div>
+                <div>{dateString + " | " + placeString}</div>
+                <div></div>
               </div>
               <div className="details">
-                <div>{place.city + ", " + place.country}</div>
+                <div>{song + " | " + artist}</div>
                 <div></div>
               </div>
             </div>
@@ -164,29 +165,31 @@ class TextFrame extends React.Component {
 
     const infoContainer = this.props.infoState ? (
       <div className={"infoText " + this.props.infoState} id="infoText">
+        <div className="logo"></div>
         <div className="stickyContainer">
           <div className="infoSticky"></div>
         </div>
-        <div className="logo"></div>
-        <div className="brief">
-          הצעה לקריאה חדשה של יומן המבוססת על נתונים מהטקסט
+        <div className="desc">
+          הצעת קריאה חדשה של טקסטים אישיים שאינה כרונולוגית בהכרח, אלא מותאמת
+          לקורא לפי תוכן, רגש ואווירה. הפרויקט מבוסס על שיטות של עיבוד שפה טבעית
+          ולמידת מכונה להוצאת נתונים מתוך הטקסט.
         </div>
 
         <div className="infoBox infoBoxScrollBar">
           <div className="infoHeader">ציר הזמן</div>
           <div className="infoDescription">
-            מציג את מקום הגלילה ביחס לכלל הטקסט, ומאפשר ניווט דרך לחיצה על נקודה
-            בציר. במעבר על נקודות במפות או בחיפוש יופיעו סימנים בהתאם למיקום
-            הטקסטים על הציר.
+            הציר מימין מציג את מקום הגלילה ביחס לכלל הטקסט, ומאפשר ניווט דרך
+            לחיצה על נקודה בציר. במעבר על נקודות במפות או בחיפוש יופיעו סימנים
+            בהתאם למיקום הטקסטים על הציר.
           </div>
         </div>
         <div className="infoBox infoBoxDetails">
           <div className="infoHeader">הטקסט</div>
           <div className="infoDescription">
-            מתוך יומנים שנכתבו על ידי משנת 2015. הטקסט נגלל, ובמעבר בין פרקים
-            ביומן יודגשו הנקודות הרלוונטיות במפות. בראש כל פרק יופיעו פרטי
-            המסגרת: מקום, זמן והשיר שהאזנתי לו בזמן הכתיבה. בלחיצה על כפתור
-            הניגון ניתן לנגן ולעצור את השיר לחילופין.
+            מבוסס על יומנים אישיים. הטקסט נגלל, ובמעבר בין פרקים ביומן יודגשו
+            הנקודות הרלוונטיות במפות. בראש כל פרק יופיעו מקום וזמן הכתיבה, והשיר
+            לו האזנתי במהלך הכתיבה. בלחיצה על כפתור הניגון ניתן לנגן ולעצור את
+            השיר לחילופין.
           </div>
         </div>
       </div>

@@ -38,18 +38,17 @@ class EmotionsMap extends React.Component {
     const chapterDots = this.props.chapters.map(
       ({ index, headerEmotions, wordsCount }) => {
         var circleClasses = "regularDot";
-        const sentences = this.props.searchIndices[index];
         if (index === this.props.hoverId || index === this.props.activeId) {
           circleClasses += " active";
         }
-        if (sentences) {
+        if (
+          this.props.searchIndices.includes(index) ||
+          this.props.searchIndices.includes(index.toString())
+        ) {
           circleClasses += " searched";
         }
 
         const position = this.calculatePosition(headerEmotions);
-        if (!position) {
-          console.log("not position " + index);
-        }
         return (
           <circle
             className={circleClasses}
@@ -57,10 +56,10 @@ class EmotionsMap extends React.Component {
             id={"dot" + index}
             cx={position[0]}
             cy={position[1]}
-            r={3 + 0.003 * wordsCount}
-            onMouseEnter={() => this.props.setHover(index)}
-            onMouseOut={() => this.props.setHover(-1)}
-            onClick={() => this.props.setActive(index)}
+            r={3 + 0.004 * wordsCount}
+            onMouseEnter={() => this.props.setHover(index, "emotion")}
+            onMouseOut={() => this.props.setHover(-1, "emotion")}
+            onClick={() => this.props.setActive(index, "emotion")}
           />
         );
       }

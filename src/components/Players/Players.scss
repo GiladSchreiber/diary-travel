@@ -1,12 +1,46 @@
 @import "../main.scss";
 
-.iconContainer {
+.playlistIconContainer {
   position: absolute;
   display: flex;
   align-items: center;
   justify-content: center;
   right: 80px;
-  top: 20px;
+  top: 60px;
+  width: 20px;
+  height: 20px;
+  cursor: pointer;
+  z-index: 2;
+}
+
+.iconContainer {
+  position: absolute;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  height: 40px;
+  width: 40px;
+  right: 15%;
+  top: 40px;
+  z-index: 2;
+  border: 1.5px solid $midColor;
+  border-left: 0;
+  border-right: 0;
+  cursor: pointer;
+  transition: border 0.3s linear;
+  &:hover {
+    border: 1.5px solid $shineColor;
+    border-left: 0;
+    border-right: 0;
+  }
+}
+
+.noteIcon {
+  color: $midColor;
+  transition: color 0.3s linear;
+  &:hover {
+    color: $shineColor;
+  }
 }
 
 .icon {
@@ -15,7 +49,80 @@
   cursor: pointer;
   align-items: center;
   justify-content: center;
-  &:active {
-    color: white;
+}
+
+.playlistContainer {
+  position: absolute;
+  width: 100%;
+  background-color: $midDarkColor;
+  font-family: "Arbel Regular";
+  font-size: 16pt;
+  line-height: 35pt;
+  transition: left 1s linear;
+  padding-bottom: 10%;
+  z-index: 3;
+}
+
+.songsContainer {
+  padding: 5% 15% 15% 10%;
+  overflow-y: scroll;
+  height: 100vh;
+}
+
+.songContainer {
+  color: $lightColor;
+  display: flex;
+  position: relative;
+  justify-content: space-between;
+  direction: ltr;
+  border-bottom: 0.5px solid $lightColor;
+  padding: 0 5px;
+  transition: background-color 0.3s linear, color 0.3s linear;
+  cursor: pointer;
+  &:hover {
+    color: $shineColor;
+  }
+}
+
+.songActive {
+  background-color: $darkColor;
+  color: $midDarkColor;
+}
+
+.waveformContainer {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: center;
+  height: 100px;
+  width: 100%;
+  background: transparent;
+}
+
+.wave {
+  position: absolute;
+  width: 80%;
+  height: 90px;
+  top: 20px;
+  left: 40px;
+}
+
+.playButton {
+  position: absolute;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  top: 40px;
+  width: 30px;
+  height: 30px;
+  right: 70px;
+  background: $lightColor;
+  border-radius: 50%;
+  border: none;
+  outline: none;
+  cursor: pointer;
+  padding: 3px;
+  &:hover {
+    background: $backgroundColor;
   }
 }

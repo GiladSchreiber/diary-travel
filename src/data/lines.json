@@ -1,0 +1,949 @@
+{
+  "lines": [
+    {
+      "index": -1,
+      "city": "Jerusalem",
+      "country": "Israel",
+      "x": 31.762736,
+      "y": 35.212784
+    },
+    {
+      "index": 0,
+      "city": "Salvador",
+      "country": "Brazil",
+      "x": -12.708764,
+      "y": -38.258961
+    },
+    {
+      "index": 1,
+      "city": "Fortaleza",
+      "country": "Brazil",
+      "x": -3.734123,
+      "y": -38.49779
+    },
+    {
+      "index": 2,
+      "city": "Jericoacoara",
+      "country": "Brazil",
+      "x": -2.792783,
+      "y": -40.520023
+    },
+    {
+      "index": 3,
+      "city": "Rio de Janeiro",
+      "country": "Brazil",
+      "x": -22.937248,
+      "y": -43.184318
+    },
+    {
+      "index": 4,
+      "city": "Puerto Iguazo",
+      "country": "Argentina",
+      "x": -25.65025,
+      "y": -54.589036
+    },
+    {
+      "index": 5,
+      "city": "Buenos Aires",
+      "country": "Argentina",
+      "x": -34.629967,
+      "y": -58.434706
+    },
+    {
+      "index": 6,
+      "city": "Ushuaia",
+      "country": "Argentina",
+      "x": -54.837852,
+      "y": -68.310085
+    },
+    {
+      "index": 7,
+      "city": "Punta Arenas",
+      "country": "Chile",
+      "x": -53.146071,
+      "y": -70.952957
+    },
+    {
+      "index": 8,
+      "city": "Puerto Natales",
+      "country": "Chile",
+      "x": -51.72981,
+      "y": -72.504197
+    },
+    {
+      "index": 9,
+      "city": "Torres del Paine",
+      "country": "Chile",
+      "x": -50.941863,
+      "y": -73.406702
+    },
+    {
+      "index": 10,
+      "city": "Puerto Natales",
+      "country": "Chile",
+      "x": -51.72981,
+      "y": -72.504197
+    },
+    {
+      "index": 11,
+      "city": "El Calafate",
+      "country": "Argentina",
+      "x": -50.344194,
+      "y": -72.272757
+    },
+    {
+      "index": 12,
+      "city": "El Chalten",
+      "country": "Argentina",
+      "x": -49.327567,
+      "y": -72.891033
+    },
+    {
+      "index": 13,
+      "city": "Bariloche",
+      "country": "Argentina",
+      "x": -41.150848,
+      "y": -71.323435
+    },
+    {
+      "index": 14,
+      "city": "Mendoza",
+      "country": "Argentina",
+      "x": -32.885425,
+      "y": -68.847533
+    },
+    {
+      "index": 15,
+      "city": "Valparaiso",
+      "country": "Chile",
+      "x": -33.021347,
+      "y": -71.637999
+    },
+    {
+      "index": 16,
+      "city": "Santiago",
+      "country": "Chile",
+      "x": -33.437842,
+      "y": -70.609232
+    },
+    {
+      "index": 17,
+      "city": "San Pedro De Atacama",
+      "country": "Chile",
+      "x": -22.911998,
+      "y": -68.200725
+    },
+    {
+      "index": 18,
+      "city": "Salar de Uyuni",
+      "country": "Bolivia",
+      "x": -21.623292,
+      "y": -67.447699
+    },
+    {
+      "index": 19,
+      "city": "Potosi",
+      "country": "Bolivia",
+      "x": -19.577041,
+      "y": -65.755867
+    },
+    {
+      "index": 20,
+      "city": "Sucre",
+      "country": "Bolivia",
+      "x": -19.036392,
+      "y": -65.273868
+    },
+    {
+      "index": 21,
+      "city": "Samaipata",
+      "country": "Bolivia",
+      "x": -18.178024,
+      "y": -63.881121
+    },
+    {
+      "index": 22,
+      "city": "Santa Cruz",
+      "country": "Bolivia",
+      "x": -17.783699,
+      "y": -63.167174
+    },
+    {
+      "index": 23,
+      "city": "Cochabamba",
+      "country": "Bolivia",
+      "x": -17.403396,
+      "y": -66.166622
+    },
+    {
+      "index": 24,
+      "city": "Toro Toro",
+      "country": "Bolivia",
+      "x": -18.110371,
+      "y": -65.800068
+    },
+    {
+      "index": 25,
+      "city": "La Paz",
+      "country": "Bolivia",
+      "x": -16.543411,
+      "y": -68.074293
+    },
+    {
+      "index": 26,
+      "city": "Rurrenabaque",
+      "country": "Bolivia",
+      "x": -14.43213,
+      "y": -67.539589
+    },
+    {
+      "index": 27,
+      "city": "Copacabana",
+      "country": "Bolivia",
+      "x": -16.159937,
+      "y": -69.089066
+    },
+    {
+      "index": 28,
+      "city": "Cusco",
+      "country": "Peru",
+      "x": -13.532189,
+      "y": -71.979761
+    },
+    {
+      "index": 29,
+      "city": "Arequipa",
+      "country": "Peru",
+      "x": -16.410228,
+      "y": -71.544505
+    },
+    {
+      "index": 30,
+      "city": "Huacachina",
+      "country": "Peru",
+      "x": -14.087089,
+      "y": -75.764246
+    },
+    {
+      "index": 31,
+      "city": "Huaraz",
+      "country": "Peru",
+      "x": -9.510395,
+      "y": -77.532298
+    },
+    {
+      "index": 32,
+      "city": "Trujillo",
+      "country": "Peru",
+      "x": -9.512596,
+      "y": -77.542083
+    },
+    {
+      "index": 33,
+      "city": "Mancora",
+      "country": "Peru",
+      "x": -4.093694,
+      "y": -81.037806
+    },
+    {
+      "index": 34,
+      "city": "Montañita",
+      "country": "Ecuador",
+      "x": -1.819626,
+      "y": -80.756004
+    },
+    {
+      "index": 35,
+      "city": "Riobamba",
+      "country": "Ecuador",
+      "x": -1.656044,
+      "y": -78.655959
+    },
+    {
+      "index": 36,
+      "city": "Baños",
+      "country": "Ecuador",
+      "x": -1.394332,
+      "y": -78.428495
+    },
+    {
+      "index": 37,
+      "city": "Latacunga",
+      "country": "Ecuador",
+      "x": -0.933058,
+      "y": -78.617952
+    },
+    {
+      "index": 38,
+      "city": "Quito",
+      "country": "Ecuador",
+      "x": -0.188998,
+      "y": -78.48547
+    },
+    {
+      "index": 39,
+      "city": "Isla Mujeres",
+      "country": "México",
+      "x": 21.201525,
+      "y": -86.710947
+    },
+    {
+      "index": 40,
+      "city": "Cancún",
+      "country": "México",
+      "x": 21.442217,
+      "y": -86.951464
+    },
+    {
+      "index": 41,
+      "city": "Madrid",
+      "country": "Spain",
+      "x": 40.402669,
+      "y": -3.720049
+    },
+    {
+      "index": 42,
+      "city": "Haifa",
+      "country": "Israel",
+      "x": 32.778775,
+      "y": 34.957827
+    },
+    {
+      "index": 43,
+      "city": "Hong Kong ",
+      "country": "China",
+      "x": 22.260206,
+      "y": 114.180243
+    },
+    {
+      "index": 44,
+      "city": "Shenzhen",
+      "country": "China",
+      "x": 22.540914,
+      "y": 114.067555
+    },
+    {
+      "index": 45,
+      "city": "Da Zhai",
+      "country": "China",
+      "x": 25.8527,
+      "y": 109.781672
+    },
+    {
+      "index": 46,
+      "city": "Guilin",
+      "country": "China",
+      "x": 25.26479,
+      "y": 110.291903
+    },
+    {
+      "index": 47,
+      "city": "Yangshuo",
+      "country": "China",
+      "x": 24.781422,
+      "y": 110.58547
+    },
+    {
+      "index": 48,
+      "city": "Kunming",
+      "country": "China",
+      "x": 25.604907,
+      "y": 105.898942
+    },
+    {
+      "index": 49,
+      "city": "Luoping",
+      "country": "China",
+      "x": 24.987718,
+      "y": 102.779513
+    },
+    {
+      "index": 50,
+      "city": "Kunming",
+      "country": "China",
+      "x": 24.887475,
+      "y": 102.645617
+    },
+    {
+      "index": 51,
+      "city": "Dali",
+      "country": "China",
+      "x": 25.187811,
+      "y": 102.884321
+    },
+    {
+      "index": 52,
+      "city": "Shaxhi",
+      "country": "China",
+      "x": 26.317453,
+      "y": 99.850139
+    },
+    {
+      "index": 53,
+      "city": "Lijiang",
+      "country": "China",
+      "x": 26.865513,
+      "y": 100.246821
+    },
+    {
+      "index": 54,
+      "city": "Lugu Lake",
+      "country": "China",
+      "x": 27.711817,
+      "y": 100.814353
+    },
+    {
+      "index": 55,
+      "city": "Tiger Leaping Gorge",
+      "country": "China",
+      "x": 27.178186,
+      "y": 100.104472
+    },
+    {
+      "index": 56,
+      "city": "Shangrila",
+      "country": "China",
+      "x": 27.30917,
+      "y": 100.231004
+    },
+    {
+      "index": 57,
+      "city": "Yubeng",
+      "country": "China",
+      "x": 27.8592,
+      "y": 98.492009
+    },
+    {
+      "index": 58,
+      "city": "Shangrila",
+      "country": "China",
+      "x": 27.759296,
+      "y": 99.678164
+    },
+    {
+      "index": 59,
+      "city": "Yading",
+      "country": "China",
+      "x": 28.453833,
+      "y": 100.343222
+    },
+    {
+      "index": 60,
+      "city": "Litang",
+      "country": "China",
+      "x": 29.970539,
+      "y": 100.269528
+    },
+    {
+      "index": 61,
+      "city": "Xinduqiao",
+      "country": "China",
+      "x": 30.04632,
+      "y": 101.490441
+    },
+    {
+      "index": 62,
+      "city": "Tagong",
+      "country": "China",
+      "x": 30.316301,
+      "y": 101.526602
+    },
+    {
+      "index": 63,
+      "city": "Danba",
+      "country": "China",
+      "x": 30.928909,
+      "y": 101.867699
+    },
+    {
+      "index": 64,
+      "city": "Chengdu",
+      "country": "China",
+      "x": 30.669085,
+      "y": 104.114008
+    },
+    {
+      "index": 65,
+      "city": "Jiuzhaigou",
+      "country": "China",
+      "x": 32.733611,
+      "y": 103.836079
+    },
+    {
+      "index": 66,
+      "city": "Kanbula",
+      "country": "China",
+      "x": 36.114754,
+      "y": 101.820539
+    },
+    {
+      "index": 67,
+      "city": "Zhangye",
+      "country": "China",
+      "x": 38.907602,
+      "y": 100.4535
+    },
+    {
+      "index": 68,
+      "city": "Dunhuang",
+      "country": "China",
+      "x": 40.162419,
+      "y": 94.681439
+    },
+    {
+      "index": 69,
+      "city": "Beijing",
+      "country": "China",
+      "x": 39.995382,
+      "y": 116.448304
+    },
+    {
+      "index": 70,
+      "city": "Ulaanbaatar",
+      "country": "Mongolia",
+      "x": 47.917802,
+      "y": 106.944451
+    },
+    {
+      "index": 71,
+      "city": "Khogo Khaan Mountain",
+      "country": "Mongolia",
+      "x": 47.406985,
+      "y": 103.672926
+    },
+    {
+      "index": 72,
+      "city": "Orkhon Valley",
+      "country": "Mongolia",
+      "x": 47.451053,
+      "y": 102.728978
+    },
+    {
+      "index": 73,
+      "city": "Tsenkher",
+      "country": "Mongolia",
+      "x": 47.446176,
+      "y": 101.755822
+    },
+    {
+      "index": 74,
+      "city": "Terkhiin Tsagaan Lake",
+      "country": "Mongolia",
+      "x": 48.137479,
+      "y": 99.700923
+    },
+    {
+      "index": 75,
+      "city": "Telmen Lake",
+      "country": "Mongolia",
+      "x": 48.907834,
+      "y": 97.348605
+    },
+    {
+      "index": 76,
+      "city": "Khyargas Lake",
+      "country": "Mongolia",
+      "x": 49.281425,
+      "y": 93.383462
+    },
+    {
+      "index": 77,
+      "city": "Achit Lake",
+      "country": "Mongolia",
+      "x": 49.487583,
+      "y": 90.649739
+    },
+    {
+      "index": 78,
+      "city": "Tsaganuur",
+      "country": "Mongolia",
+      "x": 51.364222,
+      "y": 99.343057
+    },
+    {
+      "index": 79,
+      "city": "Altai Tavan Bogd",
+      "country": "Mongolia",
+      "x": 48.459142,
+      "y": 88.729621
+    },
+    {
+      "index": 80,
+      "city": "Sagsai",
+      "country": "Mongolia",
+      "x": 48.907126,
+      "y": 89.656377
+    },
+    {
+      "index": 81,
+      "city": "Ulaangom",
+      "country": "Mongolia",
+      "x": 49.991713,
+      "y": 92.062074
+    },
+    {
+      "index": 82,
+      "city": "Mörön",
+      "country": "Mongolia",
+      "x": 49.636643,
+      "y": 100.173342
+    },
+    {
+      "index": 83,
+      "city": "Taiga",
+      "country": "Mongolia",
+      "x": 50.368366,
+      "y": 98.283167
+    },
+    {
+      "index": 84,
+      "city": "Khuvsgul Lake",
+      "country": "Mongolia",
+      "x": 51.039933,
+      "y": 100.263598
+    },
+    {
+      "index": 85,
+      "city": "Uran Togoo",
+      "country": "Mongolia",
+      "x": 49.192222,
+      "y": 102.873818
+    },
+    {
+      "index": 86,
+      "city": "Ulaanbaatar",
+      "country": "Mongolia",
+      "x": 47.911359,
+      "y": 106.796135
+    },
+    {
+      "index": 87,
+      "city": "Beijing",
+      "country": "China",
+      "x": 43.675321,
+      "y": 111.92072
+    },
+    {
+      "index": 88,
+      "city": "Yangon",
+      "country": "Myanmar",
+      "x": 16.824493,
+      "y": 96.192602
+    },
+    {
+      "index": 89,
+      "city": "Mandalay",
+      "country": "Myanmar",
+      "x": 22.024393,
+      "y": 96.106382
+    },
+    {
+      "index": 90,
+      "city": "Pyin Oo Lwin",
+      "country": "Myanmar",
+      "x": 22.033936,
+      "y": 96.48002
+    },
+    {
+      "index": 91,
+      "city": "Kyaukme",
+      "country": "Myanmar",
+      "x": 22.537568,
+      "y": 97.033889
+    },
+    {
+      "index": 92,
+      "city": "Hsipaw",
+      "country": "Myanmar",
+      "x": 22.642816,
+      "y": 97.309803
+    },
+    {
+      "index": 93,
+      "city": "Bagan",
+      "country": "Myanmar",
+      "x": 21.172066,
+      "y": 94.859573
+    },
+    {
+      "index": 94,
+      "city": "Kalaw",
+      "country": "Myanmar",
+      "x": 20.627139,
+      "y": 96.564052
+    },
+    {
+      "index": 95,
+      "city": "Inle Lake",
+      "country": "Myanmar",
+      "x": 20.486041,
+      "y": 96.885158
+    },
+    {
+      "index": 96,
+      "city": "Yangon",
+      "country": "Myanmar",
+      "x": 16.727195,
+      "y": 96.177496
+    },
+    {
+      "index": 97,
+      "city": "Kinpun",
+      "country": "Myanmar",
+      "x": 17.400483,
+      "y": 97.079111
+    },
+    {
+      "index": 98,
+      "city": "Yangon",
+      "country": "Myanmar",
+      "x": 16.888893,
+      "y": 96.06214
+    },
+    {
+      "index": 99,
+      "city": "Hong Kong ",
+      "country": "Hong Kong",
+      "x": 22.448434,
+      "y": 114.043858
+    },
+    {
+      "index": 100,
+      "city": "Jerusalem",
+      "country": "Israel",
+      "x": 31.792712,
+      "y": 35.198316
+    },
+    {
+      "index": 101,
+      "city": "Athens",
+      "country": "Greece",
+      "x": 36.64693,
+      "y": 25.413976
+    },
+    {
+      "index": 102,
+      "city": "Jerusalem",
+      "country": "Israel",
+      "x": 31.778313,
+      "y": 35.208982
+    },
+    {
+      "index": 103,
+      "city": "CopenHagen",
+      "country": "Denmark",
+      "x": 55.688282,
+      "y": 12.593139
+    },
+    {
+      "index": 104,
+      "city": "Edinburgh",
+      "country": "Scotland",
+      "x": 55.954261,
+      "y": 3.177871
+    },
+    {
+      "index": 105,
+      "city": "Tyndrum",
+      "country": "Scotland",
+      "x": 56.437303,
+      "y": -4.712148
+    },
+    {
+      "index": 106,
+      "city": "Inverness",
+      "country": "Scotland",
+      "x": 57.483866,
+      "y": -4.222716
+    },
+    {
+      "index": 107,
+      "city": "Skye Island",
+      "country": "Scotland",
+      "x": 57.265313,
+      "y": -5.965253
+    },
+    {
+      "index": 108,
+      "city": "Oban",
+      "country": "Scotland",
+      "x": 56.418596,
+      "y": -5.471937
+    },
+    {
+      "index": 109,
+      "city": "Glasgow",
+      "country": "Scotland",
+      "x": 55.860005,
+      "y": -4.202927
+    },
+    {
+      "index": 110,
+      "city": "Dublin",
+      "country": "Ireland",
+      "x": 53.389807,
+      "y": -6.170167
+    },
+    {
+      "index": 111,
+      "city": "Galway",
+      "country": "Ireland",
+      "x": 53.269521,
+      "y": -9.042565
+    },
+    {
+      "index": 112,
+      "city": "Glendalough",
+      "country": "Ireland",
+      "x": 53.013219,
+      "y": -6.326493
+    },
+    {
+      "index": 113,
+      "city": "Giants Causeway",
+      "country": "Northern Ireland",
+      "x": 55.137649,
+      "y": -6.1216
+    },
+    {
+      "index": 114,
+      "city": "Sligo",
+      "country": "Northern Ireland",
+      "x": 54.270776,
+      "y": -8.478238
+    },
+    {
+      "index": 115,
+      "city": "Galway",
+      "country": "Northern Ireland",
+      "x": 53.249805,
+      "y": -9.135949
+    },
+    {
+      "index": 116,
+      "city": "Holyhead",
+      "country": "Wales",
+      "x": 53.311506,
+      "y": -4.635353
+    },
+    {
+      "index": 117,
+      "city": "Betws-y-Coed",
+      "country": "Wales",
+      "x": 53.090078,
+      "y": -3.800406
+    },
+    {
+      "index": 118,
+      "city": "Conwy",
+      "country": "Wales",
+      "x": 53.278752,
+      "y": -3.827307
+    },
+    {
+      "index": 119,
+      "city": "Cardiff",
+      "country": "Wales",
+      "x": 51.490892,
+      "y": -3.169686
+    },
+    {
+      "index": 120,
+      "city": "London",
+      "country": "England",
+      "x": 51.489089,
+      "y": -0.357132
+    },
+    {
+      "index": 121,
+      "city": "Jerusalem",
+      "country": "Israel",
+      "x": 31.780541,
+      "y": 35.215187
+    },
+    {
+      "index": 122,
+      "city": "Berlin",
+      "country": "Germany",
+      "x": 52.486448,
+      "y": 13.419265
+    },
+    {
+      "index": 123,
+      "city": "Leipzig",
+      "country": "Germany",
+      "x": 51.335265,
+      "y": 12.479472
+    },
+    {
+      "index": 124,
+      "city": "Werchter",
+      "country": "Belgium",
+      "x": 50.970374,
+      "y": 4.695544
+    },
+    {
+      "index": 125,
+      "city": "Brussels",
+      "country": "Belgium",
+      "x": 50.9791,
+      "y": 4.698538
+    },
+    {
+      "index": 126,
+      "city": "Amsterdam",
+      "country": "Netherlands",
+      "x": 52.36842,
+      "y": 4.92388
+    },
+    {
+      "index": 127,
+      "city": "Jerusalem",
+      "country": "Israel",
+      "x": 31.765655,
+      "y": 35.172271
+    },
+    {
+      "index": 128,
+      "city": "Nicosia",
+      "country": "Cyprus",
+      "x": 35.188039,
+      "y": 33.394313
+    },
+    {
+      "index": 129,
+      "city": "Haifa",
+      "country": "Israel",
+      "x": 32.777682,
+      "y": 35.019523
+    },
+    {
+      "index": 130,
+      "city": "Toulouse",
+      "country": "Frace",
+      "x": 43.601424,
+      "y": 1.449323
+    },
+    {
+      "index": 131,
+      "city": "Andorra La Vella",
+      "country": "Andorra",
+      "x": 42.481389,
+      "y": 1.491277
+    },
+    {
+      "index": 132,
+      "city": "Toulouse",
+      "country": "Frace",
+      "x": 43.615594,
+      "y": 1.387868
+    },
+    {
+      "index": 133,
+      "city": "Jerusalem",
+      "country": "Israel",
+      "x": 31.762736,
+      "y": 35.212784
+    }
+  ]
+}

@@ -7,22 +7,47 @@ import {
   Geography,
   ZoomableGroup,
   Marker,
+  Line,
 } from "react-simple-maps";
 
 const geoUrl =
   "https://raw.githubusercontent.com/zcreativelabs/react-simple-maps/master/topojson-maps/world-110m.json";
 
+const lines = require("../../data/lines.json").lines;
+var linesCoords = [];
+
 class GeoMap extends React.Component {
+  constructor(props) {
+    super(props);
+    this.state = {
+      showLines: false,
+    };
+  }
   buildClasses = (index) => {
-    const sentences = this.props.searchIndices[index];
-    var markersClasses = "regularDot";
+    var markersClasses = "regularDot ";
     if (index === this.props.hoverId || index === this.props.activeId) {
-      markersClasses += " active";
+      markersClasses += " active ";
     }
-    if (sentences) {
-      markersClasses += " searched";
+    if (
+      this.props.searchIndices.includes(index) ||
+      this.props.searchIndices.includes(index.toString())
+    ) {
+      markersClasses += " searched ";
+    }
+    if (this.props.mapLinesState) {
+      markersClasses += " fullOpacity ";
     }
     return markersClasses;
+  };
+
+  componentDidMount() {
+    lines.map(({ x, y }) => linesCoords.push([y, x]));
+  }
+
+  setMapLinesState = (value) => {
+    this.setState({
+      showLines: value,
+    });
   };
 
   render() {
@@ -37,23 +62,52 @@ class GeoMap extends React.Component {
           </div>
         </div>
       </div>
-    ) : (
-      <div></div>
-    );
+    ) : null;
+    const linesDiv = this.state.showLines ? (
+      <Line
+        className={"line"}
+        coordinates={linesCoords}
+        strokeLinecap="round"
+      ></Line>
+    ) : null;
+
+    const mapContainerClasses = this.state.showLines
+      ? "mapContainer mapContainerLines"
+      : "mapContainer";
+
+    const geographyClasses = this.state.showLines
+      ? "rsm-geography rsm-geography-lines"
+      : "rsm-geography rsm-geography-normal";
+    const width = 960,
+      height = 540;
     return (
       <div>
         {infoContainer}
-        <div className="mapContainer">
-          <ComposableMap width={960} height={540} className="mapContent">
-            <ZoomableGroup zoom={1.2} maxZoom={10}>
-              <Geographies geography={geoUrl}>
+        <div className={mapContainerClasses}>
+          <div
+            className={"infoContainer mapLinesClass mapLinesIcon"}
+            onMouseOver={() => this.setMapLinesState(true)}
+            onMouseLeave={() => this.setMapLinesState(false)}
+          >
+            <i className="fas fa-map-marker-alt fa-lg"></i>
+          </div>
+          <ComposableMap width={width} height={height} className="mapContent">
+            <ZoomableGroup
+              zoom={1.1}
+              minZoom={1.1}
+              translateExtent={[
+                [105, 60],
+                [width - 50, height - 60],
+              ]}
+            >
+              <Geographies className={geographyClasses} geography={geoUrl}>
                 {({ geographies }) =>
                   geographies.map((geo) => (
                     <Geography key={geo.rsmKey} geography={geo} />
                   ))
                 }
               </Geographies>
-
+              {linesDiv}
               {this.props.chapters.map(({ index, wordsCount, place }) => (
                 <Marker
                   key={"place" + index}
@@ -70,8 +124,8 @@ class GeoMap extends React.Component {
                           ? 2 + 0.0005 * wordsCount
                           : 1 + 0.0005 * wordsCount
                       }
-                      onMouseEnter={() => this.props.setHover(index)}
-                      onMouseOut={() => this.props.setHover(-1)}
+                      onMouseEnter={() => this.props.setHover(index, "geo")}
+                      onMouseOut={() => this.props.setHover(-1, "geo")}
                       onClick={() => this.props.setActive(index)}
                     />
                   </g>

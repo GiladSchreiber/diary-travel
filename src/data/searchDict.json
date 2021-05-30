@@ -1,118 +1,118 @@
 [
-    {
-        "display": "אושר",
-        "normalized": "אֹשֶׁר"
-    },
-    {
-        "display": "כעס",
-        "normalized": "כָּעַס"
-    },
-    {
-        "display": "עצב",
-        "normalized": "עָצָב"
-    },
-    {
-        "display": "שמחה",
-        "normalized": "שִׂמְחָה"
-    },
-    {
-        "display": "אהבה",
-        "normalized": "אָהַב"
-    },
-    {
-        "display": "שנאה",
-        "normalized": "שִׂנְאָה"
-    },
-    {
-        "display": "רצון",
-        "normalized": "רָצוֹנ"
-    },
-    {
-        "display": "חלום",
-        "normalized": "חֲלוֹמ"
-    },
-    {
-        "display": "איחול",
-        "normalized": "אִחוּל"
-    },
-    {
-        "display": "ברכה",
-        "normalized": "בְּרֵכָה"
-    },
-    {
-        "display": "קנאה",
-        "normalized": "קַנָּא"
-    },
-    {
-        "display": "גועל",
-        "normalized": "גֹּעַל"
-    },
-    {
-        "display": "ציפייה",
-        "normalized": "צִפִּיָּה"
-    },
-    {
-        "display": "התרגשות",
-        "normalized": "הִתְרַגְּשׁוּת"
-    },
-    {
-        "display": "יופי",
-        "normalized": "יופי"
-    },
-    {
-        "display": "דמעות",
-        "normalized": "דִּמְעָה"
-    },
-    {
-        "display": "בכי",
-        "normalized": "כי"
-    },
-    {
-        "display": "בושה",
-        "normalized": "בּוֹשׁ"
-    },
-    {
-        "display": "אוכל",
-        "normalized": "אֹכֶל"
-    },
-    {
-        "display": "אמונה",
-        "normalized": "אֱמוּנָה"
-    },
-    {
-        "display": "בירה",
-        "normalized": "בִּירָה"
-    },
-    {
-        "display": "אלכוהול",
-        "normalized": "אַלְכּוֹהוֹל"
-    },
-    {
-        "display": "עניין",
-        "normalized": "עִנְיָנ"
-    },
-    {
-        "display": "ריקוד",
-        "normalized": "רִקּוּד"
-    },
-    {
-        "display": "שירה",
-        "normalized": "יָרָה"
-    },
-    {
-        "display": "אלימות",
-        "normalized": "אַלִּימוּת"
-    },
-    {
-        "display": "הפחדה",
-        "normalized": "הַפְחָדָה"
-    },
-    {
-        "display": "אתר",
-        "normalized": "אֲתָר"
-    },
-    {
-        "display": "מים",
-        "normalized": "מַיִמ"
-    }
+  {
+    "display": "אושר",
+    "normalized": "אֹשֶׁר"
+  },
+  {
+    "display": "כעס",
+    "normalized": "כָּעַס"
+  },
+  {
+    "display": "עצב",
+    "normalized": "עָצָב"
+  },
+  {
+    "display": "שמחה",
+    "normalized": "שִׂמְחָה"
+  },
+  {
+    "display": "אהבה",
+    "normalized": "אָהַב"
+  },
+  {
+    "display": "שנאה",
+    "normalized": "שִׂנְאָה"
+  },
+  {
+    "display": "רצון",
+    "normalized": "רָצוֹנ"
+  },
+  {
+    "display": "חלום",
+    "normalized": "חֲלוֹמ"
+  },
+  {
+    "display": "איחול",
+    "normalized": "אִחוּל"
+  },
+  {
+    "display": "ברכה",
+    "normalized": "בְּרֵכָה"
+  },
+  {
+    "display": "קנאה",
+    "normalized": "קַנָּא"
+  },
+  {
+    "display": "גועל",
+    "normalized": "גֹּעַל"
+  },
+  {
+    "display": "ציפייה",
+    "normalized": "צִפִּיָּה"
+  },
+  {
+    "display": "התרגשות",
+    "normalized": "הִתְרַגְּשׁוּת"
+  },
+  {
+    "display": "יופי",
+    "normalized": "יופי"
+  },
+  {
+    "display": "דמעות",
+    "normalized": "דִּמְעָה"
+  },
+  {
+    "display": "בכי",
+    "normalized": "כי"
+  },
+  {
+    "display": "בושה",
+    "normalized": "בּוֹשׁ"
+  },
+  {
+    "display": "אוכל",
+    "normalized": "אֹכֶל"
+  },
+  {
+    "display": "אמונה",
+    "normalized": "אֱמוּנָה"
+  },
+  {
+    "display": "בירה",
+    "normalized": "בִּירָה"
+  },
+  {
+    "display": "אלכוהול",
+    "normalized": "אַלְכּוֹהוֹל"
+  },
+  {
+    "display": "עניין",
+    "normalized": "עִנְיָנ"
+  },
+  {
+    "display": "ריקוד",
+    "normalized": "רִקּוּד"
+  },
+  {
+    "display": "שירה",
+    "normalized": "יָרָה"
+  },
+  {
+    "display": "אלימות",
+    "normalized": "אַלִּימוּת"
+  },
+  {
+    "display": "הפחדה",
+    "normalized": "הַפְחָדָה"
+  },
+  {
+    "display": "אתר",
+    "normalized": "אֲתָר"
+  },
+  {
+    "display": "מים",
+    "normalized": "מַיִמ"
+  }
 ]

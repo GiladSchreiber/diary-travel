@@ -2,22 +2,14 @@ import React from "react";
 import "./AutoComplete.scss";
 import Autosuggest from "react-autosuggest";
 
-const searchWords = require("../../data/searchDict.json");
-
-function getSuggestions(value) {
-  const regex = new RegExp("^" + value, "i");
-
-  return searchWords
-    .filter((searchWord) => regex.test(searchWord.display))
-    .slice(0, 8);
-}
+const categoriesData = require("../../data/searchCategories.json");
 
 function getSuggestionValue(suggestion) {
-  return suggestion.display;
+  return suggestion;
 }
 
 function renderSuggestion(suggestion) {
-  return <span>{suggestion.display}</span>;
+  return <span>{suggestion}</span>;
 }
 
 class AutoComplete extends React.Component {
@@ -29,6 +21,19 @@ class AutoComplete extends React.Component {
       suggestions: [],
       activeIcon: false,
     };
+  }
+
+  componentDidUpdate(prevProps) {
+    if (prevProps.category !== this.props.category) {
+      this.setState({ value: "" });
+    }
+  }
+  getSuggestions(value) {
+    const regex = new RegExp("^" + value, "i");
+    console.log("suggestion is ", this.props.category);
+    return Object.keys(categoriesData[this.props.category])
+      .filter((searchWord) => regex.test(searchWord))
+      .slice(0, 5);
   }
 
   onChange = (event, { newValue, method }) => {
@@ -50,15 +55,13 @@ class AutoComplete extends React.Component {
 
   onSuggestionsFetchRequested = ({ value }) => {
     this.setState({
-      suggestions: getSuggestions(value),
+      suggestions: this.getSuggestions(value),
     });
   };
 
   onSuggestionsClearRequested = () => {
     this.setState({
-      suggestions: searchWords.map(({ display }) => {
-        return display;
-      }),
+      suggestions: [],
     });
   };
 
@@ -85,6 +88,7 @@ class AutoComplete extends React.Component {
     };
 
     const searchClass = this.state.activeIcon ? " active" : "";
+
     return (
       <div className="autoCompleteContainer">
         <div

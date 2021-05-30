@@ -6,11 +6,13 @@ import EmotionsMap from "./components/EmotionsMap/EmotionsMap";
 import GeoMap from "./components/GeoMap/GeoMap";
 import Players from "./components/Players/Players";
 import AutoComplete from "./components/AutoComplete/AutoComplete";
+import Categories from "./components/Categories/Categories";
 
-var data = require("./data/chapters.json");
-var searchFile = require("./data/search.json");
-var searchDict = require("./data/searchDict.json");
-var defs = require("./data/Defs.json");
+const data = require("./data/chapters.json");
+const searchFile = require("./data/search.json");
+const searchDict = require("./data/searchDict.json");
+const defs = require("./data/Defs.json");
+const categoriesData = require("./data/searchCategories.json");
 
 class App extends React.Component {
   constructor(props) {
@@ -18,13 +20,17 @@ class App extends React.Component {
     this.state = {
       chaptersList: [],
       chapterIndex: 0,
-      searchIndices: {},
+      searchObjects: {},
+      searchIndices: [],
       activeId: 0,
       hoverId: -1,
       prevHoverId: 0,
       scrollPos: 0,
       heightFract: 0,
       infoState: "",
+      hoverTop: 0,
+      hoverSource: "",
+      category: "words",
     };
   }
 
@@ -35,27 +41,61 @@ class App extends React.Component {
     console.log(
       "searching for " + string // + ", normalized form: " + normalizedForm
     );
-    var searchIndices = {};
-    const word = searchDict.find((word) => word.display === string);
-    if (word) {
-      const normalized = word.normalized;
-      searchIndices = searchFile.search[normalized];
+    var searchObjects = {};
+    var searchIndices = [];
+    if (this.state.category == "words") {
+      const word = searchDict.find((word) => word.display === string);
+      if (word) {
+        const normalized = word.normalized;
+        searchObjects = searchFile.search[normalized];
+        searchIndices = Object.keys(searchObjects);
+      }
+      console.log(searchIndices);
+      this.setState({
+        searchObjects: searchObjects,
+        searchIndices: searchIndices,
+      });
+    } else {
+      const indices = categoriesData[this.state.category][string];
+      console.log(indices);
+      this.setState({
+        searchObjects: {},
+        searchIndices: indices ? indices : [],
+      });
     }
-    this.setState({
-      searchIndices: searchIndices,
-    });
   };
 
   setActive = (id) => {
+    console.log("active", id);
     this.setState({
       activeId: id,
     });
   };
 
-  setHover = (id) => {
+  setHoverMaps = (id, source) => {
     if (id > -1) {
       this.setState({
         hoverId: id,
+        hoverSource: source,
+      });
+    } else {
+      if (this.state.hoverId > -1) {
+        this.setState({
+          prevHoverId: this.state.hoverId,
+        });
+      }
+      this.setState({
+        hoverId: id,
+      });
+    }
+  };
+
+  setHoverScrollBar = (id, top) => {
+    if (id > -1) {
+      this.setState({
+        hoverId: id,
+        hoverSource: "scrollBar",
+        hoverTop: top,
       });
     } else {
       this.setState({
@@ -106,15 +146,16 @@ class App extends React.Component {
     }
   };
 
+  setCategory = (category) => {
+    console.log("category is: " + category);
+    this.setState({ category: category });
+  };
+
   render() {
-    const hoverChapter =
-      this.state.hoverId == -1
-        ? data.chapters[this.state.prevHoverId]
-        : data.chapters[this.state.hoverId];
     return (
       <div>
         <div
-          className={"infoContainer infoIcon"}
+          className={"infoContainer infoClass infoIcon"}
           onMouseOver={() => this.setInfoState(true)}
           onMouseLeave={() => this.setInfoState(false)}
         >
@@ -125,63 +166,48 @@ class App extends React.Component {
             chapters={data.chapters}
             activeId={this.state.activeId}
             setActive={this.setActive}
-            setHover={this.setHover}
+            setHover={this.setHoverMaps}
             hoverId={this.state.hoverId}
             searchIndices={this.state.searchIndices}
             infoState={this.state.infoState}
           />
         </div>
         <div className="EmotionsFrame">
-          <AutoComplete onSearch={this.handleSearch} />
+          <Categories setCategory={this.setCategory} />
+          <AutoComplete
+            onSearch={this.handleSearch}
+            category={this.state.category}
+          />
 
           <EmotionsMap
             chapters={data.chapters}
             activeId={this.state.activeId}
             setActive={this.setActive}
-            setHover={this.setHover}
+            setHover={this.setHoverMaps}
             hoverId={this.state.hoverId}
             searchIndices={this.state.searchIndices}
             infoState={this.state.infoState}
           />
         </div>
         <div className="textFrame">
-          <Players chapters={data.chapters} activeId={this.state.activeId} />
+          <Players
+            chapters={data.chapters}
+            activeId={this.state.activeId}
+            setActive={this.setActive}
+            setHover={this.setHoverMaps}
+          />
           <TextFrame
             chapters={data.chapters}
             onSearch={this.handleSearch}
             setActive={this.setActive}
             activeId={this.state.activeId}
             hoverId={this.state.hoverId}
-            searchIndices={this.state.searchIndices}
+            searchIndices={this.state.searchObjects}
             setScrollPos={this.setScrollPos}
             heightFract={this.state.heightFract}
             infoState={this.state.infoState}
           />
-
-          <div
-            className={"hoverBox"}
-            id="hoverBox"
-            style={{
-              left: this.state.hoverId === -1 ? 0 : "-200px",
-            }}
-          >
-            <div className="hoverEmotions" id="hoverEmotions">
-              {this.produceEmotionsString(hoverChapter.headerEmotions)}
-            </div>
-            <div className="hoverHeader" id="hoverHeader">
-              {hoverChapter.header}
-            </div>
-            <div className="hoverDate" id="hoverDate">
-              {hoverChapter.date.day +
-                "." +
-                hoverChapter.date.month +
-                "." +
-                hoverChapter.date.year}
-            </div>
-            <div className="hoverPlace" id="hoverPlace">
-              {hoverChapter.place.city + ", " + hoverChapter.place.country}
-            </div>
-          </div>
+          {this.createHoverBoxText()}
         </div>
         <div className="scrollBarContainer">
           <ScrollBar
@@ -191,9 +217,94 @@ class App extends React.Component {
             setScrollPos={this.setScrollPos}
             searchIndices={this.state.searchIndices}
             setHeightFract={this.setHeightFract}
-            setHover={this.setHover}
+            setHover={this.setHoverScrollBar}
             infoState={this.state.infoState}
           />
+          {this.createHoverBoxScrollBar()}
+        </div>
+      </div>
+    );
+  }
+
+  createHoverBoxScrollBar() {
+    const hoverChapter =
+      this.state.hoverId == -1
+        ? data.chapters[this.state.prevHoverId]
+        : data.chapters[this.state.hoverId];
+    const styleParameter = this.state.hoverTop > 50 ? "bottom" : "top";
+    const offset =
+      this.state.hoverTop > 50
+        ? 100 - this.state.hoverTop
+        : this.state.hoverTop;
+    return (
+      <div
+        className={"hoverBox hoverBoxScrollBar"}
+        id={"hoverBoxScrollBar"}
+        style={{
+          left:
+            this.state.hoverId > -1 && this.state.hoverSource === "scrollBar"
+              ? -200 + "px"
+              : 0,
+          [styleParameter]: offset + "%",
+        }}
+      >
+        <div className="hoverEmotions" id="hoverEmotions">
+          {this.produceEmotionsString(hoverChapter.headerEmotions)}
+        </div>
+        <div className="hoverHeader" id="hoverHeader">
+          {hoverChapter.header}
+        </div>
+        <div className="hoverDate" id="hoverDate">
+          {hoverChapter.date.day +
+            "." +
+            hoverChapter.date.month +
+            "." +
+            hoverChapter.date.year}
+        </div>
+        <div className="hoverPlace" id="hoverPlace">
+          {hoverChapter.place.city + ", " + hoverChapter.place.country}
+        </div>
+      </div>
+    );
+  }
+
+  createHoverBoxText() {
+    const hoverChapter =
+      this.state.hoverId === -1
+        ? data.chapters[this.state.prevHoverId]
+        : data.chapters[this.state.hoverId];
+    const styleParameter = this.state.hoverSource === "geo" ? "bottom" : "top";
+    const offset = this.state.hoverSource === "geo" ? "10%" : "20%";
+
+    return (
+      <div
+        className={"hoverBox hoverBoxText"}
+        id={"hoverBoxText"}
+        style={{
+          left:
+            this.state.hoverId > -1 &&
+            (this.state.hoverSource === "geo" ||
+              this.state.hoverSource === "emotion")
+              ? -200 + "px"
+              : 0,
+          [styleParameter]: offset,
+        }}
+      >
+        <div className="hoverEmotions" id="hoverEmotions">
+          {this.produceEmotionsString(hoverChapter.headerEmotions)}
+        </div>
+        <div className="hoverHeader" id="hoverHeader">
+          {hoverChapter.header}
+        </div>
+        <div className="hoverDate" id="hoverDate">
+          {hoverChapter.date.day +
+            "." +
+            hoverChapter.date.month +
+            "." +
+            hoverChapter.date.year}
+        </div>
+        <div className="hoverPlace" id="hoverPlace">
+          {hoverChapter.place.city + ", " + hoverChapter.place.country}
         </div>
       </div>
     );

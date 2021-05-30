@@ -7,6 +7,11 @@
   background-blend-mode: multiply;
   background-size: cover;
   background-color: $lightColor;
+  transition: background-color 0.3s linear;
+}
+
+.mapContainerLines {
+  background-color: $midDarkColor;
 }
 
 .rsm-geography {
@@ -14,7 +19,15 @@
   vertical-align: middle;
   fill: $midDarkColor;
   stroke: $lightColor;
-  stroke-width: 0.1px;
+  transition: stroke-width 0.3s linear;
+}
+
+.rsm-geography-normal {
+  stroke-width: 0.1;
+}
+
+.rsm-geography-lines {
+  stroke-width: 0.5;
 }
 
 :focus {
@@ -26,6 +39,32 @@
 }
 
 .infoBoxMap {
-  top: 20px;
+  top: 5%;
   right: 30px;
+}
+
+.line {
+  stroke: $shineColor;
+  stroke-width: 1;
+}
+
+text {
+  font-family: "Arbel Regular";
+  fill: $shineColor;
+  font-size: 16pt;
+}
+
+.mapLinesClass {
+  border: 1px solid $midDarkColor;
+  border-left: 0;
+  border-right: 0;
+  bottom: 40px;
+}
+
+.mapLinesIcon {
+  color: $midDarkColor;
+  transition: color 0.3s linear;
+  &:hover {
+    color: $shineColor;
+  }
 }
