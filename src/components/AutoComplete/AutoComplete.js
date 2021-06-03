@@ -29,11 +29,15 @@ class AutoComplete extends React.Component {
     }
   }
   getSuggestions(value) {
+    console.log(value);
+    if (!value) {
+      return Object.keys(categoriesData[this.props.category]).slice(0, 8);
+    }
     const regex = new RegExp("^" + value, "i");
     console.log("suggestion is ", this.props.category);
     return Object.keys(categoriesData[this.props.category])
       .filter((searchWord) => regex.test(searchWord))
-      .slice(0, 5);
+      .slice(0, 8);
   }
 
   onChange = (event, { newValue, method }) => {
@@ -72,6 +76,10 @@ class AutoComplete extends React.Component {
     });
   };
 
+  sholeRenderSuggestions = () => {
+    return true;
+  };
+
   handleSearchClick = () => {
     this.props.onSearch(this.state.value);
     this.setState({
@@ -102,6 +110,7 @@ class AutoComplete extends React.Component {
           onSuggestionsFetchRequested={this.onSuggestionsFetchRequested}
           onSuggestionsClearRequested={this.onSuggestionsClearRequested}
           getSuggestionValue={getSuggestionValue}
+          shouldRenderSuggestions={this.sholeRenderSuggestions}
           renderSuggestion={renderSuggestion}
           onSuggestionSelected={this.onSuggestionSelected}
           highlightFirstSuggestion={true}

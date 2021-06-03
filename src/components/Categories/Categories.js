@@ -6,7 +6,6 @@ const searchTypes = [
   { value: "words", label: "מילה" },
   { value: "places", label: "מקום" },
   { value: "emotions", label: "רגש" },
-  { value: "artists", label: "אומן" },
 ];
 const defaultOption = searchTypes[0];
 

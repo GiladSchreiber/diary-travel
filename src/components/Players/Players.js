@@ -7,10 +7,35 @@ class Players extends React.Component {
     super(props);
     this.state = {
       isPlaying: false,
-      right: false,
       playlist: false,
       url: "./sound/" + this.props.chapters[this.props.activeId].song + ".mp3",
     };
+  }
+
+  playAfterLoad = () => {
+    if (this.state.playlist) {
+      this.waveform.play();
+    }
+  };
+  componentDidMount() {
+    const track = document.querySelector("#track");
+    this.waveform = WaveSurfer.create({
+      barWidth: 2,
+      cursorWidth: 1,
+      container: "#waveform",
+      backend: "WebAudio",
+      height: 80,
+      progressColor: "#e84e26",
+      responsive: true,
+      waveColor: "#cbf7e4",
+      cursorColor: "transparent",
+    });
+    this.waveform.load(track);
+    this.waveform.on("ready", () => {
+      if (this.state.isPlaying) {
+        this.waveform.play();
+      }
+    });
   }
 
   playButtonClicked = () => {
@@ -18,44 +43,21 @@ class Players extends React.Component {
     this.waveform.playPause();
   };
 
-  setPlaylist = (value) => {
-    if (!value) {
-      if (this.state.playlist) {
-        setTimeout(
-          function () {
-            this.props.setHover(-1, "emotion");
-          }.bind(this),
-          800
-        );
-      }
-      this.setState({
-        playlist: value,
-        right: value,
-      });
-    } else {
-      this.setState({
-        right: value,
-      });
-
-      setTimeout(
-        function () {
-          this.setState({
-            playlist: value,
-          });
-        }.bind(this),
-        1000
-      );
-    }
-  };
-
   songClicked = (index) => {
     this.props.setActive(index);
-    this.setState({ playlist: false, right: false });
+    this.setState({ playlist: false });
   };
 
-  songHover = (index) => {
-    if (this.state.playlist) {
-      this.props.setHover(index, "emotion");
+  mouseLeaveSong = () => {
+    if (!this.state.playlist) {
+      setTimeout(
+        function () {
+          this.props.setHover(-1, "emotion");
+        }.bind(this),
+        300
+      );
+    } else {
+      this.props.setHover(-1, "emotion");
     }
   };
 
@@ -75,16 +77,6 @@ class Players extends React.Component {
 
       setTimeout(
         function () {
-          console.log("isPlaying " + this.waveform.isPlaying());
-          if (this.state.isPlaying) {
-            this.waveform.play();
-          }
-        }.bind(this),
-        2000
-      );
-
-      setTimeout(
-        function () {
           document
             .getElementById("song" + Math.max(this.props.activeId - 4, 0))
             .scrollIntoView(true);
@@ -94,33 +86,17 @@ class Players extends React.Component {
     }
   }
 
-  componentDidMount() {
-    const track = document.querySelector("#track");
-    this.waveform = WaveSurfer.create({
-      barWidth: 2,
-      cursorWidth: 1,
-      container: "#waveform",
-      backend: "WebAudio",
-      height: 80,
-      progressColor: "#e84e26",
-      responsive: true,
-      waveColor: "#cbf7e4",
-      cursorColor: "transparent",
-    });
-    this.waveform.load(track);
-  }
-
   render() {
     var iconType = this.state.isPlaying ? " fa-pause" : " fa-play";
 
     const playlistDiv = (
       <div
         className="playlistContainer"
-        onMouseLeave={() => this.setPlaylist(false)}
-        style={{ left: this.state.right ? 0 : "1000px" }}
+        onMouseLeave={() => this.setState({ playlist: false })}
+        style={{ left: this.state.playlist ? 0 : "1000px" }}
       >
-        <div className="waveformContainer" onClick={this.playButtonClicked}>
-          <div className="playButton">
+        <div className="waveformContainer">
+          <div className="playButton" onClick={this.playButtonClicked}>
             <i className={"fas fa-md icon" + iconType}></i>
           </div>
           <div className="wave" id="waveform" />
@@ -138,7 +114,8 @@ class Players extends React.Component {
                 key={"song" + index}
                 id={"song" + index}
                 onClick={() => this.songClicked(index)}
-                onMouseOver={() => this.songHover(index)}
+                onMouseOver={() => this.props.setHover(index, "emotion")}
+                onMouseLeave={() => this.mouseLeaveSong()}
               >
                 <div>{song}</div>
                 <div>{artist}</div>
@@ -153,7 +130,7 @@ class Players extends React.Component {
         {playlistDiv}
         <div
           className="iconContainer"
-          onMouseEnter={() => this.setPlaylist(true)}
+          onMouseEnter={() => this.setState({ playlist: true })}
         >
           <i className="fab fa-itunes-note fa-lg noteIcon"></i>
         </div>

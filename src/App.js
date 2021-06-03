@@ -8,7 +8,7 @@ import Players from "./components/Players/Players";
 import AutoComplete from "./components/AutoComplete/AutoComplete";
 import Categories from "./components/Categories/Categories";
 
-const data = require("./data/chapters.json");
+const data = require("./data/chapters_new.json");
 const searchFile = require("./data/search.json");
 const searchDict = require("./data/searchDict.json");
 const defs = require("./data/Defs.json");
@@ -248,12 +248,6 @@ class App extends React.Component {
           [styleParameter]: offset + "%",
         }}
       >
-        <div className="hoverEmotions" id="hoverEmotions">
-          {this.produceEmotionsString(hoverChapter.headerEmotions)}
-        </div>
-        <div className="hoverHeader" id="hoverHeader">
-          {hoverChapter.header}
-        </div>
         <div className="hoverDate" id="hoverDate">
           {hoverChapter.date.day +
             "." +
@@ -263,6 +257,12 @@ class App extends React.Component {
         </div>
         <div className="hoverPlace" id="hoverPlace">
           {hoverChapter.place.city + ", " + hoverChapter.place.country}
+        </div>
+        <div className="hoverHeader" id="hoverHeader">
+          {hoverChapter.header}
+        </div>
+        <div className="hoverEmotions" id="hoverEmotions">
+          {this.produceEmotionsString(hoverChapter.headerEmotions)}
         </div>
       </div>
     );
@@ -290,12 +290,6 @@ class App extends React.Component {
           [styleParameter]: offset,
         }}
       >
-        <div className="hoverEmotions" id="hoverEmotions">
-          {this.produceEmotionsString(hoverChapter.headerEmotions)}
-        </div>
-        <div className="hoverHeader" id="hoverHeader">
-          {hoverChapter.header}
-        </div>
         <div className="hoverDate" id="hoverDate">
           {hoverChapter.date.day +
             "." +
@@ -305,6 +299,12 @@ class App extends React.Component {
         </div>
         <div className="hoverPlace" id="hoverPlace">
           {hoverChapter.place.city + ", " + hoverChapter.place.country}
+        </div>
+        <div className="hoverHeader" id="hoverHeader">
+          {hoverChapter.header}
+        </div>
+        <div className="hoverEmotions" id="hoverEmotions">
+          {this.produceEmotionsString(hoverChapter.headerEmotions)}
         </div>
       </div>
     );

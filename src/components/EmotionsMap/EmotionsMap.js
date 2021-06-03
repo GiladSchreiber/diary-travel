@@ -49,18 +49,50 @@ class EmotionsMap extends React.Component {
         }
 
         const position = this.calculatePosition(headerEmotions);
+        const radius = 3 + 0.004 * wordsCount;
+
         return (
           <circle
             className={circleClasses}
+            style={{ animationDelay: -Math.random() * position[0] }}
             key={"dot" + index}
             id={"dot" + index}
             cx={position[0]}
             cy={position[1]}
-            r={3 + 0.004 * wordsCount}
+            r={radius}
             onMouseEnter={() => this.props.setHover(index, "emotion")}
             onMouseOut={() => this.props.setHover(-1, "emotion")}
             onClick={() => this.props.setActive(index, "emotion")}
-          />
+          >
+            {/* <animate
+              attributeName="r"
+              values={radius + "; " + radius * 1.1 + "; " + radius}
+              dur="2s"
+              begin={-radius}
+              keySplines="0.4 0 0.2 1; 0.4 0 0.2 1"
+              repeatCount="indefinite"
+            />
+            <animate
+              attributeName="cx"
+              values={
+                position[0] + "; " + position[0] * 1.005 + "; " + position[0]
+              }
+              dur="5s"
+              keySplines="0.4 0 0.2 1; 0.4 0 0.2 1"
+              begin={-radius}
+              repeatCount="indefinite"
+            />
+            <animate
+              attributeName="cy"
+              values={
+                position[1] + "; " + position[1] * 1.005 + "; " + position[1]
+              }
+              dur="10s"
+              keySplines="0.4 0 0.2 1; 0.4 0 0.2 1"
+              begin={-radius}
+              repeatCount="indefinite"
+            /> */}
+          </circle>
         );
       }
     );
@@ -69,20 +101,16 @@ class EmotionsMap extends React.Component {
         <div className="infoBox infoBoxEmotion">
           <div className="infoHeader">המפה הרגשית</div>
           <div className="infoDescription">
-            המפה הרגשית מבוססת על מודל השפה HeBert שנכתב על ידי אביחי שריקי
-            וענבל יהב, המתייג משפטים בעברית לפי שמונה רגשות. כל נקודה מייצגת קטע
-            ביומן, וממוקמת על פי הממוצע המשוקלל של משפט המפתח. במעבר על נקודה
-            מוצגים פרטי המסגרת מימין ובלחיצה הפרק יגלל למסך.
+            מבוססת על מודל שפה המתייג משפטים בעברית לפי שמונה רגשות. כל נקודה
+            מייצגת קטע ביומן, וממוקמת על פי הממוצע המשוקלל של משפט המפתח.
           </div>
         </div>
 
         <div className="infoBox infoBoxSearch">
           <div className="infoHeader">חיפוש בטקסטים</div>
           <div className="infoDescription">
-            חיפוש ידגיש את כלל הקטעים בהם מופיעה מילת החיפוש על הטיותיה השונות,
-            וידגיש את המשפטים המכילים את המילים הללו בטקסט הרץ. בבחירת נקודה אשר
-            מופיע בה מילת חיפוש, הטקסט יגלל לשורה בה מופיעה המילה, במקום למשפט
-            המפתח.
+            חיפוש לפי קטגוריה המדגיש את כלל הקטעים בהם מופיעה מילת החיפוש.
+            בלחיצה על תוצאת חיפוש הטקסט יגלל למקום הופעת המילה.
           </div>
         </div>
       </div>

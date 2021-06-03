@@ -3,8 +3,7 @@
 .TextContainer {
   width: 100%;
   font-family: "Arbel Regular";
-  font-size: 16pt;
-  line-height: 35pt;
+  font-size: 14pt;
   z-index: 5;
 }
 
@@ -18,7 +17,7 @@
 
 .chapter {
   padding-bottom: 30px;
-  line-height: 35pt;
+  line-height: 28pt;
   direction: rtl;
   z-index: 1;
   white-space: pre-wrap;
@@ -81,7 +80,7 @@ div.details {
 }
 
 .stickyContainer {
-  padding: 0 35% 0 10%;
+  padding: 0 15% 0 10%;
   z-index: 10;
 }
 
@@ -106,11 +105,11 @@ div.details {
 
 .logo {
   position: absolute;
-  width: 150px;
+  width: 200px;
   height: 80px;
-  top: 63px;
-  right: 80px;
-  background-image: url("./logo.png");
+  top: 66px;
+  right: 120px;
+  background-image: url("./logo2.png");
   background-size: contain;
   background-repeat: no-repeat;
   z-index: 11;

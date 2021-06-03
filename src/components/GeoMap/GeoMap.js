@@ -56,9 +56,16 @@ class GeoMap extends React.Component {
         <div className="infoBox infoBoxMap">
           <div className="infoHeader">המפה הגיאוגרפית</div>
           <div className="infoDescription">
-            כל נקודה מייצגת קטע ביומן וממוקמת על פי מקום הכתיבה של אותו קטע.
-            המפה ניתנת לגרירה ולהגדלה. במעבר על נקודה מוצגים פרטי המסגת ובלחיצה
-            הפרק יגלל למסך.
+            כל נקודה מייצגת פרק ביומן על פי מקום הכתיבה. המפה ניתנת לגרירה
+            ולהגדלה.
+          </div>
+        </div>
+
+        <div className="infoBox infoBoxDots">
+          <div className="infoHeader">הנקודות במפות</div>
+          <div className="infoDescription">
+            הנקודות מייצגות פרקים ביומן. במעבר על נקודה יופיעו פרטי המסגרת של
+            הפרק המתאים, ובלחיצה הפרק יגלל למסך.{" "}
           </div>
         </div>
       </div>
@@ -89,7 +96,10 @@ class GeoMap extends React.Component {
             onMouseOver={() => this.setMapLinesState(true)}
             onMouseLeave={() => this.setMapLinesState(false)}
           >
-            <i className="fas fa-map-marker-alt fa-lg"></i>
+            <i
+              className="fas fa-plane fa-lg"
+              style={{ transform: "rotate(-30deg)" }}
+            ></i>
           </div>
           <ComposableMap width={width} height={height} className="mapContent">
             <ZoomableGroup

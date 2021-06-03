@@ -1,12 +1,28 @@
 import React from "react";
 import "./ScrollBar.scss";
 
+const months = [
+  "ינואר",
+  "פברואר",
+  "מרץ",
+  "אפריל",
+  "מאי",
+  "יוני",
+  "יולי",
+  "אוגוסט",
+  "ספטמבר",
+  "אוקטובר",
+  "נובמבר",
+  "דצמבר",
+];
 class ScrollBar extends React.Component {
   constructor(props) {
     super(props);
     this.state = {
       markerPos: -100,
       chaptersTops: [],
+      hoverMouseId: -1,
+      mousePos: 0,
     };
   }
 
@@ -29,6 +45,27 @@ class ScrollBar extends React.Component {
     this.props.setHeightFract(heightFract);
   };
 
+  onHover = (e) => {
+    if (this.props.hoverId >= 0) {
+      return;
+    }
+    const mousePos = (e.clientY / window.innerHeight) * 100;
+    var hoverMouseId = -1;
+    for (var i = 1; i < this.state.chaptersTops.length; i++) {
+      if (
+        mousePos > this.state.chaptersTops[i - 1] &&
+        mousePos < this.state.chaptersTops[i]
+      ) {
+        hoverMouseId = i - 1;
+        break;
+      }
+    }
+    this.setState({
+      hoverMouseId: hoverMouseId,
+      mousePos: window.innerHeight - e.clientY,
+    });
+  };
+
   render() {
     const markers = this.props.searchIndices.map((i) => {
       return (
@@ -48,13 +85,20 @@ class ScrollBar extends React.Component {
         className={"info infoScrollBar " + this.props.infoState}
         id="infoScrollBar"
       ></div>
-    ) : (
-      <div></div>
-    );
+    ) : null;
 
+    var hoverDate = "";
     var top = -10;
     if (this.props.hoverId >= 0) {
       top = this.state.chaptersTops[this.props.hoverId];
+    }
+
+    if (this.state.hoverMouseId >= 0) {
+      const hoverChapter = this.props.chapters[this.state.hoverMouseId];
+      hoverDate =
+        months[parseInt(hoverChapter.date.month) - 1] +
+        ", " +
+        hoverChapter.date.year;
     }
 
     return (
@@ -64,6 +108,8 @@ class ScrollBar extends React.Component {
           className="scrollBar"
           id="scrollBar"
           onMouseDown={(e) => this.scrollBarClicked(e)}
+          onMouseMove={(e) => this.onHover(e)}
+          onMouseOut={() => this.setState({ hoverMouseId: -1 })}
         >
           <div
             className="thumb"
@@ -77,6 +123,9 @@ class ScrollBar extends React.Component {
             }}
           ></div>
           {markers}
+          <div className="movingDate" style={{ bottom: this.state.mousePos }}>
+            {hoverDate}
+          </div>
         </div>
       </div>
     );

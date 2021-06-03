@@ -53,8 +53,9 @@
   position: absolute;
   right: 105%;
   width: 60%;
-  color: $shineColor;
-  writing-mode: vertical-rl;
+  color: $lightColorDarker;
+  writing-mode: vertical-lr;
+  transform: rotate(180deg);
   text-orientation: mixed;
   font-family: "Arbel Regular";
   font-size: 16pt;
