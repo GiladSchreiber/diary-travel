@@ -8,28 +8,42 @@
   height: 100%;
   background-color: $lightColor;
   cursor: pointer;
-  z-index: 2;
+  z-index: 5;
 }
 
 .thumb {
-  position: relative;
-  right: 20%;
+  position: absolute;
   height: 0;
-  width: 60%;
-  background-color: $midColor;
-  cursor: pointer;
+  width: 80%;
+  margin: 0 10%;
+  background-color: $midDarkColor;
 }
 
 .marker {
   position: absolute;
-  right: 20%;
-  height: 5px;
-  width: 60%;
+  height: 3px;
+  width: 80%;
+  margin: 0 10%;
   top: 0;
-  background-color: $shineOpacityColor;
-  animation: fadeIn 0.3s 1;
+  background-color: rgba($shineColor, 0.7);
+  animation: fadeIn 1s 1;
   animation-timing-function: ease-in-out;
-  opacity: 1;
+}
+
+.hoverMarker {
+  position: absolute;
+  height: 3px;
+  width: 80%;
+  margin: 0 10%;
+  top: 0;
+}
+
+.brightMarker {
+  background-color: $midColor;
+}
+
+.darkMarker {
+  background-color: $lightColor;
 }
 
 #active {
@@ -49,14 +63,28 @@
   border-left: 1px solid $lightColor;
 }
 
+.movingDateContainer {
+  position: absolute;
+  right: 0;
+  width: 100%;
+  z-index: 20;
+}
+
 .movingDate {
   position: absolute;
   right: 105%;
-  width: 60%;
-  color: $lightColorDarker;
+  height: 200px;
   writing-mode: vertical-lr;
   transform: rotate(180deg);
   text-orientation: mixed;
   font-family: "Arbel Regular";
-  font-size: 16pt;
+  font-size: 14pt;
+}
+
+.brightDate {
+  color: $lightColor;
+}
+
+.darkDate {
+  color: $midColor;
 }

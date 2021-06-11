@@ -7,13 +7,12 @@ class Players extends React.Component {
     super(props);
     this.state = {
       isPlaying: false,
-      playlist: false,
       url: "./sound/" + this.props.chapters[this.props.activeId].song + ".mp3",
     };
   }
 
   playAfterLoad = () => {
-    if (this.state.playlist) {
+    if (this.props.playlist) {
       this.waveform.play();
     }
   };
@@ -25,13 +24,20 @@ class Players extends React.Component {
       container: "#waveform",
       backend: "WebAudio",
       height: 80,
+      // fillParent: true,
       progressColor: "#e84e26",
       responsive: true,
       waveColor: "#cbf7e4",
       cursorColor: "transparent",
+      minPxPerSec: 10,
     });
     this.waveform.load(track);
     this.waveform.on("ready", () => {
+      if (this.state.isPlaying) {
+        this.waveform.play();
+      }
+    });
+    this.waveform.on("finish", () => {
       if (this.state.isPlaying) {
         this.waveform.play();
       }
@@ -45,11 +51,11 @@ class Players extends React.Component {
 
   songClicked = (index) => {
     this.props.setActive(index);
-    this.setState({ playlist: false });
+    this.props.setPlaylist(false);
   };
 
   mouseLeaveSong = () => {
-    if (!this.state.playlist) {
+    if (!this.props.playlist) {
       setTimeout(
         function () {
           this.props.setHover(-1, "emotion");
@@ -89,19 +95,24 @@ class Players extends React.Component {
   render() {
     var iconType = this.state.isPlaying ? " fa-pause" : " fa-play";
 
-    const playlistDiv = (
+    return (
       <div
         className="playlistContainer"
-        onMouseLeave={() => this.setState({ playlist: false })}
-        style={{ left: this.state.playlist ? 0 : "1000px" }}
+        style={{ right: this.props.playlist ? 0 : "-1000px" }}
       >
+        <div
+          className="infoContainer returnIcon"
+          onClick={() => this.props.setPlaylist(false)}
+        >
+          <i className="fas fa-times fa-md"></i>
+        </div>
         <div className="waveformContainer">
+          <div className="wave" id="waveform" />
           <div className="playButton" onClick={this.playButtonClicked}>
             <i className={"fas fa-md icon" + iconType}></i>
           </div>
-          <div className="wave" id="waveform" />
-          <audio id="track" src={this.state.url} />
         </div>
+        <audio id="track" src={this.state.url} />
         <div className="songsContainer">
           {this.props.chapters.map(({ index, song, artist }) => {
             const songClasses =
@@ -122,17 +133,6 @@ class Players extends React.Component {
               </div>
             );
           })}
-        </div>
-      </div>
-    );
-    return (
-      <div>
-        {playlistDiv}
-        <div
-          className="iconContainer"
-          onMouseEnter={() => this.setState({ playlist: true })}
-        >
-          <i className="fab fa-itunes-note fa-lg noteIcon"></i>
         </div>
       </div>
     );

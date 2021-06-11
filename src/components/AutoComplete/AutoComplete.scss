@@ -5,7 +5,7 @@
   text-align: right;
   background-color: transparent;
   font-size: 18pt;
-  top: 70px;
+  top: 35px;
   width: 150px;
   height: 40px;
   right: 6%;
@@ -36,7 +36,6 @@
   text-align: right;
   color: $backgroundColor;
   width: 90%;
-  padding: 0 10px;
   font-size: 14pt;
   vertical-align: middle;
   border: none;
@@ -76,7 +75,7 @@
 
 .react-autosuggest__suggestion {
   cursor: pointer;
-  padding: 10px 20px;
+  padding: 10px 10px;
 }
 
 .react-autosuggest__suggestion--highlighted {

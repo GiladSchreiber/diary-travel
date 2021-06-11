@@ -17,7 +17,7 @@
 
 .chapter {
   padding-bottom: 30px;
-  line-height: 28pt;
+  line-height: 26pt;
   direction: rtl;
   z-index: 1;
   white-space: pre-wrap;
@@ -28,35 +28,43 @@ span {
 }
 
 span.active {
+  display: block;
   background-color: transparent;
-  animation: fadeBackground 2s 1;
+  font-family: "Arbel Bold";
+}
+
+span.currentActive {
+  animation: fadeBackground 3s 1;
   animation-timing-function: ease-in-out;
 }
 
 span.searched {
-  background-color: $shineOpacityColor;
+  background-color: rgba($shineColor, 0.5);
 }
 
 @keyframes fadeBackground {
   0% {
     background-color: transparent;
+    color: black;
   }
   10% {
     background-color: $shineColor;
+    color: white;
   }
   100% {
     background-color: transparent;
+    color: black;
   }
 }
 
 div.sticky {
   position: sticky;
   background-color: $backgroundColor;
-  line-height: 30pt;
-  padding: 24pt 0 6pt 0;
+  line-height: 22pt;
+  padding: 22pt 0 20pt 0;
   color: rgb(100, 100, 100);
   top: -1px;
-  font-family: "Arbel Regular";
+  font-family: "Simpler Bold";
   font-size: 12pt;
   border-bottom: 1px solid $midColor;
   z-index: 1;
@@ -105,11 +113,11 @@ div.details {
 
 .logo {
   position: absolute;
-  width: 200px;
-  height: 80px;
+  width: 220px;
+  height: 200px;
   top: 66px;
-  right: 120px;
-  background-image: url("./logo2.png");
+  right: 110px;
+  background-image: url("./logo.svg");
   background-size: contain;
   background-repeat: no-repeat;
   z-index: 11;
@@ -128,4 +136,11 @@ div.details {
 
 strong {
   font-family: "Arbel Bold";
+}
+
+.expandIcon {
+  color: black;
+  top: 6px;
+  left: 6px;
+  z-index: 3;
 }

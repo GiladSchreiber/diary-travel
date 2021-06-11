@@ -37,15 +37,15 @@ class EmotionsMap extends React.Component {
   render() {
     const chapterDots = this.props.chapters.map(
       ({ index, headerEmotions, wordsCount }) => {
-        var circleClasses = "regularDot";
-        if (index === this.props.hoverId || index === this.props.activeId) {
-          circleClasses += " active";
-        }
+        var circleClasses = "regularDot nonActiveDot lowOpacity";
         if (
           this.props.searchIndices.includes(index) ||
           this.props.searchIndices.includes(index.toString())
         ) {
-          circleClasses += " searched";
+          circleClasses = "regularDot searched lowOpacity";
+        }
+        if (index === this.props.hoverId || index === this.props.activeId) {
+          circleClasses = "regularDot activeDot fullOpacity";
         }
 
         const position = this.calculatePosition(headerEmotions);
@@ -114,9 +114,7 @@ class EmotionsMap extends React.Component {
           </div>
         </div>
       </div>
-    ) : (
-      <div></div>
-    );
+    ) : null;
 
     return (
       <div>

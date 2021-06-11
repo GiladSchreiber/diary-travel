@@ -3,15 +3,13 @@
 .mapContainer {
   width: 100%;
   height: 100%;
-  background-image: url("./waves.png");
-  background-blend-mode: multiply;
-  background-size: cover;
   background-color: $lightColor;
   transition: background-color 0.3s linear;
 }
 
 .mapContainerLines {
   background-color: $midDarkColor;
+  z-index: 20;
 }
 
 .rsm-geography {
@@ -19,15 +17,17 @@
   vertical-align: middle;
   fill: $midDarkColor;
   stroke: $lightColor;
-  transition: stroke-width 0.3s linear;
+  transition: stroke-width 0.3s linear, opacity 0.3s linear;
 }
 
 .rsm-geography-normal {
   stroke-width: 0.1;
+  opacity: 1;
 }
 
 .rsm-geography-lines {
-  stroke-width: 0.5;
+  stroke-width: 0.3;
+  opacity: 0.9;
 }
 
 :focus {
@@ -36,6 +36,8 @@
 
 .infoMap {
   border-top: 1px solid $lightColor;
+  z-index: 20;
+  cursor: auto;
 }
 
 .infoBoxMap {
@@ -50,26 +52,45 @@
 
 .line {
   stroke: $shineColor;
-  stroke-width: 1;
-}
-
-text {
-  font-family: "Arbel Regular";
-  fill: $shineColor;
-  font-size: 16pt;
-}
-
-.mapLinesClass {
-  border: 1px solid $midDarkColor;
-  border-left: 0;
-  border-right: 0;
-  bottom: 40px;
 }
 
 .mapLinesIcon {
-  color: $midDarkColor;
+  bottom: 40px;
   transition: color 0.3s linear;
   &:hover {
     color: $shineColor;
+    border: 1px solid $shineColor;
+    border-left: 0;
+    border-right: 0;
   }
+}
+
+.mapLinesNonActive {
+  color: $midDarkColor;
+  border: 1px solid $midDarkColor;
+  border-left: 0;
+  border-right: 0;
+}
+
+.mapLinesActive {
+  color: $shineColor;
+  border: 1px solid $shineColor;
+  border-left: 0;
+  border-right: 0;
+}
+
+.plusClass {
+  bottom: 122px;
+}
+
+.minusClass {
+  bottom: 81px;
+  border-top: 1px solid transparent;
+  border-bottom: 1px solid transparent;
+}
+
+text {
+  fill: $shineColor;
+  font-family: "Arbel Regular";
+  background-color: transparent;
 }

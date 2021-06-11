@@ -48,5 +48,197 @@
       "offset": [80, 0],
       "hebrewLabel": "כעס"
     }
+  ],
+
+  "countries": [
+    {
+      "name": "אנדורה",
+      "coords": [1.509103, 42.532572],
+      "dx": -12,
+      "dy": -10,
+      "curve": 0.5,
+      "anchor": "begin",
+      "offset": -4
+    },
+    {
+      "name": "ספרד",
+      "coords": [-6.989234, 38.290183],
+      "dx": -20,
+      "dy": 10,
+      "curve": 0.5,
+      "anchor": "begin",
+      "offset": -4
+    },
+    {
+      "name": "מקסיקו",
+      "coords": [-88.814216, 21.344099],
+      "dx": -10,
+      "dy": 5,
+      "curve": 0.5,
+      "anchor": "begin",
+      "offset": -4
+    },
+    {
+      "name": "אקוודור",
+      "coords": [-80.68045, -1.497693],
+      "dx": -10,
+      "dy": 5,
+      "curve": 0.5,
+      "anchor": "begin",
+      "offset": -4
+    },
+    {
+      "name": "פרו",
+      "coords": [-75.901148, -13.34606],
+      "dx": -10,
+      "dy": 5,
+      "curve": 0.5,
+      "anchor": "begin",
+      "offset": -4
+    },
+    {
+      "name": "בוליביה",
+      "coords": [-68.125337, -18.118112],
+      "dx": -10,
+      "dy": 20,
+      "curve": 0.5,
+      "anchor": "begin",
+      "offset": -4
+    },
+    {
+      "name": "צ׳ילה",
+      "coords": [-73.102474, -35.340872],
+      "dx": -10,
+      "dy": 5,
+      "curve": 0.5,
+      "anchor": "begin",
+      "offset": -4
+    },
+    {
+      "name": "ארגנטינה",
+      "coords": [-66.838127, -43.614424],
+      "dx": 15,
+      "dy": 5,
+      "curve": 0.5,
+      "anchor": "end",
+      "offset": 4
+    },
+    {
+      "name": "ברזיל",
+      "coords": [-41.675464, -15.982871],
+      "dx": 15,
+      "dy": 5,
+      "curve": 0.5,
+      "anchor": "end",
+      "offset": 4
+    },
+    {
+      "name": "מונגוליה",
+      "coords": [103.612938, 49.743345],
+      "dx": 10,
+      "dy": -30,
+      "curve": 0.5,
+      "anchor": "end",
+      "offset": 4
+    },
+    {
+      "name": "סין",
+      "coords": [116.620752, 27.55364],
+      "dx": 30,
+      "dy": 10,
+      "curve": 0.5,
+      "anchor": "end",
+      "offset": 4
+    },
+    {
+      "name": "מיאנמר",
+      "coords": [92.187159, 19.338688],
+      "dx": -18,
+      "dy": 20,
+      "curve": 0.5,
+      "anchor": "start",
+      "offset": -4
+    },
+    {
+      "name": "וויילס",
+      "coords": [-4.196044, 51.800823],
+      "dx": -30,
+      "dy": -2,
+      "curve": 0.5,
+      "anchor": "start",
+      "offset": -4
+    },
+    {
+      "name": "אירלנד",
+      "coords": [-10.431743, 53.595457],
+      "dx": -14,
+      "dy": -15,
+      "curve": 0.5,
+      "anchor": "start",
+      "offset": -4
+    },
+    {
+      "name": "גרמניה",
+      "coords": [14.258916, 51.529453],
+      "dx": 40,
+      "dy": 10,
+      "curve": 0.5,
+      "anchor": "end",
+      "offset": 4
+    },
+    {
+      "name": "אנגליה",
+      "coords": [-1.211349, 53.580904],
+      "dx": 3,
+      "dy": -44,
+      "curve": 0.5,
+      "anchor": "end",
+      "offset": 4
+    },
+    {
+      "name": "בלגיה",
+      "coords": [2.572446, 51.028842],
+      "dx": 40,
+      "dy": -34,
+      "curve": 0.5,
+      "anchor": "end",
+      "offset": 4
+    },
+    {
+      "name": "הולנד",
+      "coords": [5.051484, 53.230887],
+      "dx": 50,
+      "dy": -3,
+      "curve": 0.5,
+      "anchor": "end",
+      "offset": 4
+    },
+    {
+      "name": "סקוטלנד",
+      "coords": [-8.171555, 57.269518],
+      "dx": -8,
+      "dy": -24,
+      "curve": 0.5,
+      "anchor": "start",
+      "offset": -4
+    },
+    {
+      "name": "יוון",
+      "coords": [21.323667, 36.917567],
+      "dx": -8,
+      "dy": 24,
+      "curve": 0.5,
+      "anchor": "start",
+      "offset": -4
+    },
+    {
+      "name": "קפריסין",
+      "coords": [31.591691, 35.230112],
+      "dx": 8,
+      "dy": 34,
+      "curve": 0.5,
+      "anchor": "end",
+      "offset": 4
+    }
   ]
 }

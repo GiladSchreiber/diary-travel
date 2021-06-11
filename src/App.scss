@@ -27,13 +27,22 @@
   z-index: 4;
   position: fixed;
   background-color: $midColor;
-  right: 0;
+  transition: right 0.3s linear;
+  width: 50%;
+  height: 100vh;
+}
+
+.frontBackground {
+  z-index: 12;
+  position: fixed;
+  background-color: darken($backgroundColor, 3%);
+  transition: right 0.3s linear;
   width: 50%;
   height: 100vh;
 }
 
 .scrollBarContainer {
-  z-index: 6;
+  z-index: 20;
   height: 100vh;
   position: fixed;
   width: 50px;
@@ -47,12 +56,13 @@
 body {
   overflow: hidden;
   direction: rtl;
+  background-color: darken($backgroundColor, 3%);
 }
 
 .hoverBox {
   position: absolute;
   width: 180px;
-  font-family: "Arbel Regular";
+  font-family: "Simpler Bold";
   color: black;
   transition: left 0.3s linear;
   padding: 10px;
@@ -60,15 +70,16 @@ body {
 }
 
 .hoverBoxText {
-  background-color: $backgroundDarkColor;
+  background-color: darken($backgroundColor, 3%);
   z-index: -3;
 }
 
 .hoverBoxScrollBar {
-  background-color: $lightColorDarker;
+  background-color: lighten($lightColor, 3%);
 }
 
 .hoverHeader {
+  font-family: "Arbel Regular";
   border: 1px solid $midColor;
   border-right: 0;
   border-left: 0;
@@ -77,18 +88,21 @@ body {
 }
 
 .hoverPlace {
+  color: rgb(100, 100, 100);
   padding: 10px 0;
   direction: ltr;
 }
 
 .hoverEmotions {
-  padding: 10px 0;
-  font-size: 11pt;
+  color: rgb(100, 100, 100);
+  padding: 10px 0 10px 0;
+  line-height: 18pt;
 }
 
 .hoverDate {
   direction: ltr;
   padding: 10px 0 0 0;
+  color: rgb(100, 100, 100);
 }
 
 .infoContainer {
@@ -104,24 +118,98 @@ body {
   padding: 0 3px;
   transition: border 0.3s linear;
   z-index: 11;
-  &:hover {
-    border: 1px solid $shineColor;
-    border-left: 0;
-    border-right: 0;
-  }
 }
 
 .infoClass {
-  border: 1px solid $lightColor;
-  border-left: 0;
-  border-right: 0;
-  top: 40px;
+  border: 0.5px solid $lightColor;
+  color: $lightColor;
+}
+
+.infoClassActive {
+  border: 0.5px solid $shineColor;
+  color: $shineColor;
+  border-top: 0;
+  border-bottom: 0;
 }
 
 .infoIcon {
-  color: $lightColor;
+  border-radius: 20px;
+  border-top: 0;
+  border-bottom: 0;
+  top: 35px;
   transition: color 0.3s linear;
   &:hover {
     color: $shineColor;
+    border: 0.5px solid $shineColor;
+    border-top: 0;
+    border-bottom: 0;
+  }
+}
+
+.activeDot {
+  fill: $shineColor;
+  opacity: 1;
+}
+
+.fullOpacity {
+  opacity: 1;
+}
+
+.searched {
+  fill: rgba($shineColor, 0.7);
+}
+
+.info {
+  position: absolute;
+  background-color: $infoBackground;
+  width: 100%;
+  height: 100%;
+  z-index: 9;
+}
+
+.fadeIn {
+  animation: fade-in 0.3s 1;
+  animation-timing-function: ease-in-out;
+}
+
+.fadeOut {
+  animation: fade-out 0.3s 1;
+  animation-timing-function: ease-in-out;
+}
+
+.infoBox {
+  position: absolute;
+  width: 180px;
+  font-family: "Arbel Regular";
+  font-size: 12pt;
+  line-height: 18pt;
+  direction: rtl;
+  color: $darkColor;
+  background-color: transparent;
+  padding: 10px;
+  text-align: right;
+}
+
+.infoHeader {
+  font-family: "Simpler Bold";
+  text-align: right;
+  padding-bottom: 10px;
+}
+
+@keyframes fade-in {
+  0% {
+    opacity: 0;
+  }
+  100% {
+    opacity: 1;
+  }
+}
+
+@keyframes fade-out {
+  0% {
+    opacity: 1;
+  }
+  100% {
+    opacity: 0;
   }
 }

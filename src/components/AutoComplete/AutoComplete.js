@@ -2,7 +2,7 @@ import React from "react";
 import "./AutoComplete.scss";
 import Autosuggest from "react-autosuggest";
 
-const categoriesData = require("../../data/searchCategories.json");
+const searchWords = require("../../data/search_list.json").words;
 
 function getSuggestionValue(suggestion) {
   return suggestion;
@@ -23,19 +23,13 @@ class AutoComplete extends React.Component {
     };
   }
 
-  componentDidUpdate(prevProps) {
-    if (prevProps.category !== this.props.category) {
-      this.setState({ value: "" });
-    }
-  }
   getSuggestions(value) {
     console.log(value);
     if (!value) {
-      return Object.keys(categoriesData[this.props.category]).slice(0, 8);
+      return Object.keys(searchWords).slice(0, 8);
     }
     const regex = new RegExp("^" + value, "i");
-    console.log("suggestion is ", this.props.category);
-    return Object.keys(categoriesData[this.props.category])
+    return Object.keys(searchWords)
       .filter((searchWord) => regex.test(searchWord))
       .slice(0, 8);
   }
@@ -49,7 +43,6 @@ class AutoComplete extends React.Component {
 
   handleKeyPress = (event) => {
     if (event.key === "Enter") {
-      console.log("key pressed");
       this.props.onSearch(this.state.text);
       this.setState({
         activeIcon: true,

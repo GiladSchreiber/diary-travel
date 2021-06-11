@@ -58,7 +58,7 @@ class TextFrame extends React.Component {
       const searchIndices = this.props.searchIndices[this.props.activeId];
       var targetSentence = null;
       if (searchIndices) {
-        const targetIndex = Object.keys(searchIndices)[0];
+        const targetIndex = searchIndices[0];
         targetSentence = document.getElementById(
           "chapter" + this.props.activeId + "sentence" + targetIndex
         );
@@ -118,16 +118,18 @@ class TextFrame extends React.Component {
         const sentencesDivs = sentences.map((sentence, j) => {
           var spanClass = "";
           if (searchIndices) {
-            if (searchIndices[j]) {
+            if (searchIndices.find((i) => parseInt(i) == j)) {
               spanClass += "searched";
             }
-          } else if (index === this.props.activeId) {
-            headerIndices.map((activeSentence) => {
-              if (j === activeSentence) {
-                spanClass += "active";
-              }
-            });
           }
+          headerIndices.map((activeSentence) => {
+            if (j === parseInt(activeSentence)) {
+              spanClass += " active";
+              if (index === this.props.activeId) {
+                spanClass += " currentActive";
+              }
+            }
+          });
           return (
             <span
               key={j}
@@ -149,7 +151,9 @@ class TextFrame extends React.Component {
           >
             <div className="sticky" id={index}>
               <div className="details">
-                <div>{dateString + " | " + placeString}</div>
+                <div>
+                  {index + 1 + "/267 | " + dateString + " | " + placeString}
+                </div>
                 <div></div>
               </div>
               <div className="details">
@@ -197,6 +201,24 @@ class TextFrame extends React.Component {
       <div>
         {infoContainer}
         <div className="TextContainer">
+          <div
+            className="infoContainer expandIcon"
+            onClick={() => this.props.setWideScreen()}
+          >
+            <i
+              className={
+                this.props.wideScreen
+                  ? "fas fa-minus fa-sm"
+                  : "fas fa-plus fa-sm"
+              }
+            ></i>
+          </div>
+          <div
+            className="infoContainer iconContainer"
+            onClick={() => this.props.setPlaylist(true)}
+          >
+            <i className="fab fa-itunes-note fa-lg"></i>
+          </div>
           <div className="content" id="content" ref={this.containerRef}>
             <div key={"chapter"} id={"chapter"}>
               {textSpan}

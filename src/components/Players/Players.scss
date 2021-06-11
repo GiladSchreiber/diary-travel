@@ -14,31 +14,17 @@
 }
 
 .iconContainer {
-  position: absolute;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  height: 40px;
-  width: 40px;
+  color: black;
   right: 15%;
-  top: 40px;
+  top: 35px;
   z-index: 2;
   border: 1.5px solid $midColor;
   border-left: 0;
   border-right: 0;
-  cursor: pointer;
-  transition: border 0.3s linear;
   &:hover {
     border: 1.5px solid $shineColor;
     border-left: 0;
     border-right: 0;
-  }
-}
-
-.noteIcon {
-  color: $midColor;
-  transition: color 0.3s linear;
-  &:hover {
     color: $shineColor;
   }
 }
@@ -53,14 +39,14 @@
 
 .playlistContainer {
   position: absolute;
-  width: 100%;
+  width: 50%;
   background-color: $midDarkColor;
   font-family: "Arbel Regular";
-  font-size: 16pt;
-  line-height: 35pt;
-  transition: left 0.5s linear;
+  font-size: 14pt;
+  line-height: 32pt;
+  transition: right 0.5s linear;
   padding-bottom: 10%;
-  z-index: 3;
+  z-index: 4;
 }
 
 .songsContainer {
@@ -96,6 +82,7 @@
   justify-content: center;
   height: 100px;
   width: 100%;
+  cursor: pointer;
   background: transparent;
 }
 
@@ -125,4 +112,11 @@
   &:hover {
     background: $backgroundColor;
   }
+}
+
+.returnIcon {
+  color: $shineColor;
+  top: 6px;
+  left: 6px;
+  cursor: pointer;
 }

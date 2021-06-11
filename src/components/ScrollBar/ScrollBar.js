@@ -75,6 +75,7 @@ class ScrollBar extends React.Component {
           onMouseEnter={() =>
             this.props.setHover(i, this.state.chaptersTops[i])
           }
+          onMouseOver={() => this.setState({ mousePos: -10 })}
           onMouseOut={() => this.props.setHover(-1, this.state.chaptersTops[i])}
         ></div>
       );
@@ -93,23 +94,30 @@ class ScrollBar extends React.Component {
       top = this.state.chaptersTops[this.props.hoverId];
     }
 
+    var mouseMarkerTop = -10;
     if (this.state.hoverMouseId >= 0) {
       const hoverChapter = this.props.chapters[this.state.hoverMouseId];
       hoverDate =
         months[parseInt(hoverChapter.date.month) - 1] +
-        ", " +
+        " " +
         hoverChapter.date.year;
+      mouseMarkerTop = window.innerHeight - this.state.mousePos;
     }
 
+    const colorChoice =
+      mouseMarkerTop > (this.props.scrollPos / 100) * window.innerHeight;
+    const mouseMarkerClass = colorChoice ? "brightMarker" : "darkMarker";
+    const mouseDateClass =
+      !colorChoice || this.props.playlist ? "brightDate" : "darkDate";
     return (
       <div>
         {infoContainer}
         <div
           className="scrollBar"
           id="scrollBar"
-          onMouseDown={(e) => this.scrollBarClicked(e)}
+          onClick={(e) => this.scrollBarClicked(e)}
           onMouseMove={(e) => this.onHover(e)}
-          onMouseOut={() => this.setState({ hoverMouseId: -1 })}
+          onMouseLeave={() => this.setState({ hoverMouseId: -1 })}
         >
           <div
             className="thumb"
@@ -122,10 +130,17 @@ class ScrollBar extends React.Component {
               top: top + "%",
             }}
           ></div>
-          {markers}
-          <div className="movingDate" style={{ bottom: this.state.mousePos }}>
-            {hoverDate}
+          <div
+            className="movingDateContainer"
+            style={{
+              bottom: this.state.hoverMouseId >= 0 ? this.state.mousePos : -10,
+            }}
+          >
+            <div className={"movingDate " + mouseDateClass}>{hoverDate}</div>
+            <div className={"hoverMarker " + mouseMarkerClass}></div>
           </div>
+
+          {markers}
         </div>
       </div>
     );

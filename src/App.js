@@ -6,13 +6,10 @@ import EmotionsMap from "./components/EmotionsMap/EmotionsMap";
 import GeoMap from "./components/GeoMap/GeoMap";
 import Players from "./components/Players/Players";
 import AutoComplete from "./components/AutoComplete/AutoComplete";
-import Categories from "./components/Categories/Categories";
 
 const data = require("./data/chapters_new.json");
-const searchFile = require("./data/search.json");
-const searchDict = require("./data/searchDict.json");
+const searchWords = require("./data/search_list.json").words;
 const defs = require("./data/Defs.json");
-const categoriesData = require("./data/searchCategories.json");
 
 class App extends React.Component {
   constructor(props) {
@@ -30,7 +27,8 @@ class App extends React.Component {
       infoState: "",
       hoverTop: 0,
       hoverSource: "",
-      category: "words",
+      wideScreen: false,
+      playlist: false,
     };
   }
 
@@ -38,35 +36,21 @@ class App extends React.Component {
     if (!string) {
       return;
     }
-    console.log(
-      "searching for " + string // + ", normalized form: " + normalizedForm
-    );
+    console.log("searching for " + string);
     var searchObjects = {};
     var searchIndices = [];
-    if (this.state.category == "words") {
-      const word = searchDict.find((word) => word.display === string);
-      if (word) {
-        const normalized = word.normalized;
-        searchObjects = searchFile.search[normalized];
-        searchIndices = Object.keys(searchObjects);
-      }
-      console.log(searchIndices);
-      this.setState({
-        searchObjects: searchObjects,
-        searchIndices: searchIndices,
-      });
-    } else {
-      const indices = categoriesData[this.state.category][string];
-      console.log(indices);
-      this.setState({
-        searchObjects: {},
-        searchIndices: indices ? indices : [],
-      });
+    const words = searchWords[string];
+    if (words) {
+      searchObjects = words;
+      searchIndices = Object.keys(words);
     }
+    this.setState({
+      searchObjects: searchObjects,
+      searchIndices: searchIndices,
+    });
   };
 
   setActive = (id) => {
-    console.log("active", id);
     this.setState({
       activeId: id,
     });
@@ -107,13 +91,20 @@ class App extends React.Component {
 
   produceEmotionsString = (emotions) => {
     var emotionsString = "";
+    var i = 0;
     defs.emotions.map(({ type, hebrewLabel }) => {
       const value = emotions.find((emotion) => emotion.type === type).value;
       if (value > 0) {
         emotionsString += hebrewLabel + ": " + parseInt(value * 100) + "%, ";
+        i++;
+        if (i % 2 == 0) {
+          emotionsString += "\n";
+        }
       }
     });
-    return emotionsString.slice(0, -2);
+    return i % 2 == 0
+      ? emotionsString.slice(0, -3)
+      : emotionsString.slice(0, -2);
   };
 
   setScrollPos = (scrollPos) => {
@@ -146,18 +137,25 @@ class App extends React.Component {
     }
   };
 
-  setCategory = (category) => {
-    console.log("category is: " + category);
-    this.setState({ category: category });
+  setWideScreen = () => {
+    this.setState({
+      wideScreen: !this.state.wideScreen,
+    });
+  };
+
+  setPlaylist = (value) => {
+    this.setState({
+      playlist: value,
+    });
   };
 
   render() {
+    const infoClasses = this.state.infoState ? "infoClassActive" : "infoClass";
     return (
       <div>
         <div
-          className={"infoContainer infoClass infoIcon"}
-          onMouseOver={() => this.setInfoState(true)}
-          onMouseLeave={() => this.setInfoState(false)}
+          className={infoClasses + " infoContainer infoIcon"}
+          onClick={() => this.setInfoState(!this.state.infoState)}
         >
           <i className="fas fa-question fa-lg"></i>
         </div>
@@ -173,11 +171,7 @@ class App extends React.Component {
           />
         </div>
         <div className="EmotionsFrame">
-          <Categories setCategory={this.setCategory} />
-          <AutoComplete
-            onSearch={this.handleSearch}
-            category={this.state.category}
-          />
+          <AutoComplete onSearch={this.handleSearch} />
 
           <EmotionsMap
             chapters={data.chapters}
@@ -189,13 +183,14 @@ class App extends React.Component {
             infoState={this.state.infoState}
           />
         </div>
-        <div className="textFrame">
-          <Players
-            chapters={data.chapters}
-            activeId={this.state.activeId}
-            setActive={this.setActive}
-            setHover={this.setHoverMaps}
-          />
+        <div
+          className="frontBackground"
+          style={{ right: this.state.wideScreen ? "75%" : "100%" }}
+        ></div>
+        <div
+          className="textFrame"
+          style={{ right: this.state.wideScreen ? "25%" : 0 }}
+        >
           <TextFrame
             chapters={data.chapters}
             onSearch={this.handleSearch}
@@ -206,6 +201,9 @@ class App extends React.Component {
             setScrollPos={this.setScrollPos}
             heightFract={this.state.heightFract}
             infoState={this.state.infoState}
+            setWideScreen={this.setWideScreen}
+            wideScreen={this.state.wideScreen}
+            setPlaylist={this.setPlaylist}
           />
           {this.createHoverBoxText()}
         </div>
@@ -219,9 +217,18 @@ class App extends React.Component {
             setHeightFract={this.setHeightFract}
             setHover={this.setHoverScrollBar}
             infoState={this.state.infoState}
+            playlist={this.state.playlist}
           />
           {this.createHoverBoxScrollBar()}
         </div>
+        <Players
+          chapters={data.chapters}
+          activeId={this.state.activeId}
+          setActive={this.setActive}
+          setHover={this.setHoverMaps}
+          playlist={this.state.playlist}
+          setPlaylist={this.setPlaylist}
+        />
       </div>
     );
   }
@@ -236,6 +243,8 @@ class App extends React.Component {
       this.state.hoverTop > 50
         ? 100 - this.state.hoverTop
         : this.state.hoverTop;
+    const initialLeft = this.state.playlist ? window.innerWidth / 4 : 0;
+
     return (
       <div
         className={"hoverBox hoverBoxScrollBar"}
@@ -291,7 +300,9 @@ class App extends React.Component {
         }}
       >
         <div className="hoverDate" id="hoverDate">
-          {hoverChapter.date.day +
+          {hoverChapter.index +
+            "/267 | " +
+            hoverChapter.date.day +
             "." +
             hoverChapter.date.month +
             "." +

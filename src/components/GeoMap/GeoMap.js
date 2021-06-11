@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useState } from "react";
 import "./GeoMap.scss";
 
 import {
@@ -8,12 +8,15 @@ import {
   ZoomableGroup,
   Marker,
   Line,
+  Annotation,
 } from "react-simple-maps";
 
 const geoUrl =
   "https://raw.githubusercontent.com/zcreativelabs/react-simple-maps/master/topojson-maps/world-110m.json";
 
 const lines = require("../../data/lines.json").lines;
+const countries = require("../../data/Defs.json").countries;
+
 var linesCoords = [];
 
 class GeoMap extends React.Component {
@@ -21,22 +24,28 @@ class GeoMap extends React.Component {
     super(props);
     this.state = {
       showLines: false,
+      zoom: 1.1,
+      center: [0, 0],
     };
   }
-  buildClasses = (index) => {
-    var markersClasses = "regularDot ";
-    if (index === this.props.hoverId || index === this.props.activeId) {
-      markersClasses += " active ";
-    }
-    if (
+
+  isSearched = (index) => {
+    return (
       this.props.searchIndices.includes(index) ||
       this.props.searchIndices.includes(index.toString())
-    ) {
-      markersClasses += " searched ";
+    );
+  };
+
+  buildClasses = (index, isSearchedI) => {
+    var markersClasses = "regularDot ";
+    const isActive =
+      index === this.props.hoverId || index === this.props.activeId;
+    markersClasses += isSearchedI ? "searched " : "nonActiveDot ";
+    if (isActive) {
+      markersClasses = "regularDot activeDot ";
     }
-    if (this.props.mapLinesState) {
-      markersClasses += " fullOpacity ";
-    }
+    markersClasses +=
+      this.state.showLines || isActive ? "fullOpacity" : "lowOpacity";
     return markersClasses;
   };
 
@@ -48,6 +57,14 @@ class GeoMap extends React.Component {
     this.setState({
       showLines: value,
     });
+  };
+
+  minusClicked = () => {
+    const targetZoom = Math.max(1.1, this.state.zoom / 2);
+    this.setState({ zoom: targetZoom });
+    if (targetZoom === 1.1) {
+      this.setState({ center: [0, 0] });
+    }
   };
 
   render() {
@@ -75,36 +92,64 @@ class GeoMap extends React.Component {
         className={"line"}
         coordinates={linesCoords}
         strokeLinecap="round"
-      ></Line>
+        strokeWidth={1.0 / this.state.zoom}
+      />
     ) : null;
 
+    const annotationsDiv = this.state.showLines ? this.annotations() : null;
     const mapContainerClasses = this.state.showLines
-      ? "mapContainer mapContainerLines"
-      : "mapContainer";
-
+      ? " mapContainerLines"
+      : "";
     const geographyClasses = this.state.showLines
       ? "rsm-geography rsm-geography-lines"
       : "rsm-geography rsm-geography-normal";
+    const mapLinesIconClasses = this.state.showLines
+      ? "mapLinesActive"
+      : "mapLinesNonActive";
     const width = 960,
       height = 540;
+
     return (
       <div>
         {infoContainer}
-        <div className={mapContainerClasses}>
+        <div className={"mapContainer" + mapContainerClasses}>
           <div
-            className={"infoContainer mapLinesClass mapLinesIcon"}
-            onMouseOver={() => this.setMapLinesState(true)}
-            onMouseLeave={() => this.setMapLinesState(false)}
+            className={mapLinesIconClasses + " infoContainer mapLinesIcon"}
+            onClick={() => this.setState({ showLines: !this.state.showLines })}
           >
             <i
               className="fas fa-plane fa-lg"
               style={{ transform: "rotate(-30deg)" }}
             ></i>
           </div>
+          <div
+            className={
+              "plusClass " + mapLinesIconClasses + " infoContainer mapLinesIcon"
+            }
+            onClick={() =>
+              this.setState({ zoom: Math.min(8, this.state.zoom * 2) })
+            }
+          >
+            <i className="fas fa-plus fa-sm"></i>
+          </div>
+          <div
+            className={
+              "minusClass " +
+              mapLinesIconClasses +
+              " infoContainer mapLinesIcon"
+            }
+            onClick={() => this.minusClicked()}
+          >
+            <i className="fas fa-minus fa-sm"></i>
+          </div>
           <ComposableMap width={width} height={height} className="mapContent">
             <ZoomableGroup
-              zoom={1.1}
+              zoom={this.state.zoom}
+              center={this.state.center}
               minZoom={1.1}
+              onMoveEnd={(e) =>
+                this.setState({ zoom: e.zoom, center: e.coordinates })
+              }
               translateExtent={[
                 [105, 60],
                 [width - 50, height - 60],
@@ -118,26 +163,24 @@ class GeoMap extends React.Component {
                 }
               </Geographies>
               {linesDiv}
-              {this.props.chapters.map(({ index, wordsCount, place }) => (
+              {annotationsDiv}
+              {this.props.chapters.map(({ index, place }) => (
                 <Marker
                   key={"place" + index}
                   id={"place" + index}
                   coordinates={[place.y, place.x]}
                 >
-                  <g className={this.buildClasses(index)}>
+                  <g
+                    className={this.buildClasses(index, this.isSearched(index))}
+                  >
                     <circle
                       cx="0"
                       cy="0"
-                      r={
-                        index === this.props.hoverId ||
-                        index === this.props.activeId
-                          ? 2 + 0.0005 * wordsCount
-                          : 1 + 0.0005 * wordsCount
-                      }
+                      r={6 / this.state.zoom}
                       onMouseEnter={() => this.props.setHover(index, "geo")}
                       onMouseOut={() => this.props.setHover(-1, "geo")}
                       onClick={() => this.props.setActive(index)}
-                    />
+                    ></circle>
                   </g>
                 </Marker>
               ))}
@@ -147,6 +190,34 @@ class GeoMap extends React.Component {
       </div>
     );
   }
+
+  annotations = () => {
+    return countries.map(({ name, coords, dx, dy, curve, anchor, offset }) => {
+      return (
+        <Annotation
+          subject={coords}
+          dx={dx}
+          dy={dy}
+          curve={curve}
+          connectorProps={{
+            stroke: "#e84e26",
+            strokeWidth: 0.5 + 0.5 / this.state.zoom,
+            strokeLinecap: "round",
+            strokeDasharray: "0.5 4",
+          }}
+        >
+          <text
+            x={offset}
+            textAnchor={anchor}
+            alignmentBaseline="middle"
+            fontSize={3 + 10 / this.state.zoom + "pt"}
+          >
+            {name}
+          </text>
+        </Annotation>
+      );
+    });
+  };
 }
 
 export default GeoMap;
