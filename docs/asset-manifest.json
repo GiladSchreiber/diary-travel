@@ -1,6 +1,6 @@
 {
   "files": {
-    "main.css": "/static/css/main.b9d9500e.chunk.css",
+    "main.css": "/static/css/main.c9971d89.chunk.css",
     "main.js": "/static/js/main.3d9af01a.chunk.js",
     "main.js.map": "/static/js/main.3d9af01a.chunk.js.map",
     "runtime-main.js": "/static/js/runtime-main.791b3480.js",
@@ -10,7 +10,7 @@
     "static/js/3.e31dc726.chunk.js": "/static/js/3.e31dc726.chunk.js",
     "static/js/3.e31dc726.chunk.js.map": "/static/js/3.e31dc726.chunk.js.map",
     "index.html": "/index.html",
-    "static/css/main.b9d9500e.chunk.css.map": "/static/css/main.b9d9500e.chunk.css.map",
+    "static/css/main.c9971d89.chunk.css.map": "/static/css/main.c9971d89.chunk.css.map",
     "static/js/2.f79479a6.chunk.js.LICENSE.txt": "/static/js/2.f79479a6.chunk.js.LICENSE.txt",
     "static/js/main.3d9af01a.chunk.js.LICENSE.txt": "/static/js/main.3d9af01a.chunk.js.LICENSE.txt",
     "static/media/AutoComplete.scss": "/static/media/Rubik-Regular.a4bece5c.ttf",
@@ -19,7 +19,7 @@
   "entrypoints": [
     "static/js/runtime-main.791b3480.js",
     "static/js/2.f79479a6.chunk.js",
-    "static/css/main.b9d9500e.chunk.css",
+    "static/css/main.c9971d89.chunk.css",
     "static/js/main.3d9af01a.chunk.js"
   ]
 }
