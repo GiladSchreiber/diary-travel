@@ -1,8 +1,8 @@
 {
   "files": {
     "main.css": "/static/css/main.4d100838.chunk.css",
-    "main.js": "/static/js/main.e0a360bf.chunk.js",
-    "main.js.map": "/static/js/main.e0a360bf.chunk.js.map",
+    "main.js": "/static/js/main.a9aa5c2f.chunk.js",
+    "main.js.map": "/static/js/main.a9aa5c2f.chunk.js.map",
     "runtime-main.js": "/static/js/runtime-main.c4b9b764.js",
     "runtime-main.js.map": "/static/js/runtime-main.c4b9b764.js.map",
     "static/js/2.dbe9186f.chunk.js": "/static/js/2.dbe9186f.chunk.js",
@@ -12,7 +12,7 @@
     "index.html": "/index.html",
     "static/css/main.4d100838.chunk.css.map": "/static/css/main.4d100838.chunk.css.map",
     "static/js/2.dbe9186f.chunk.js.LICENSE.txt": "/static/js/2.dbe9186f.chunk.js.LICENSE.txt",
-    "static/js/main.e0a360bf.chunk.js.LICENSE.txt": "/static/js/main.e0a360bf.chunk.js.LICENSE.txt",
+    "static/js/main.a9aa5c2f.chunk.js.LICENSE.txt": "/static/js/main.a9aa5c2f.chunk.js.LICENSE.txt",
     "static/media/AutoComplete.scss": "/static/media/search.ed129e9d.svg",
     "static/media/TextFrame.scss": "/static/media/logo.1b5a2182.svg",
     "static/media/App.scss": "/static/media/question.d4e5711b.svg"
@@ -21,6 +21,6 @@
     "static/js/runtime-main.c4b9b764.js",
     "static/js/2.dbe9186f.chunk.js",
     "static/css/main.4d100838.chunk.css",
-    "static/js/main.e0a360bf.chunk.js"
+    "static/js/main.a9aa5c2f.chunk.js"
   ]
 }
