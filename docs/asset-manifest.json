@@ -1,24 +1,24 @@
 {
   "files": {
-    "main.css": "/static/css/main.ce4334b6.css",
-    "main.js": "/static/js/main.aa295fe3.js",
-    "static/media/Rubik-Regular.ttf": "/static/media/Rubik-Regular.a4bece5c270c316c1c24.ttf",
-    "static/media/Rubik-Bold.ttf": "/static/media/Rubik-Bold.366b50ff64dedebe9f17.ttf",
-    "static/media/search.svg": "/static/media/search.ed129e9dd063df6c6d4d.svg",
-    "static/media/ArbelHagildaRegular.otf": "/static/media/ArbelHagildaRegular.9d84f404a30496655547.otf",
-    "static/media/ArbelHagildaBold.otf": "/static/media/ArbelHagildaBold.3207c7226ccce58c4851.otf",
-    "static/media/return.svg": "/static/media/return.7ffe5a9828ec9f282dad.svg",
-    "static/media/question.svg": "/static/media/question.d4e5711b8d8f21a9763c.svg",
-    "static/media/exit.svg": "/static/media/exit.0b788788820e71218286.svg",
-    "index.html": "/index.html",
-    "static/media/logo.svg": "/static/media/logo.1b5a21826d48fc009937.svg",
-    "static/media/expand-alt-solid.svg": "/static/media/expand-alt-solid.10de849dc45f063c6ad5.svg",
-    "static/media/compress-alt-solid.svg": "/static/media/compress-alt-solid.e7ee2d51357f12445ff9.svg",
-    "main.ce4334b6.css.map": "/static/css/main.ce4334b6.css.map",
-    "main.aa295fe3.js.map": "/static/js/main.aa295fe3.js.map"
+    "main.css": "/diary-travel/static/css/main.b8b3f8c5.css",
+    "main.js": "/diary-travel/static/js/main.aa295fe3.js",
+    "static/media/Rubik-Regular.ttf": "/diary-travel/static/media/Rubik-Regular.a4bece5c270c316c1c24.ttf",
+    "static/media/Rubik-Bold.ttf": "/diary-travel/static/media/Rubik-Bold.366b50ff64dedebe9f17.ttf",
+    "static/media/search.svg": "/diary-travel/static/media/search.ed129e9dd063df6c6d4d.svg",
+    "static/media/ArbelHagildaRegular.otf": "/diary-travel/static/media/ArbelHagildaRegular.9d84f404a30496655547.otf",
+    "static/media/ArbelHagildaBold.otf": "/diary-travel/static/media/ArbelHagildaBold.3207c7226ccce58c4851.otf",
+    "static/media/return.svg": "/diary-travel/static/media/return.7ffe5a9828ec9f282dad.svg",
+    "static/media/question.svg": "/diary-travel/static/media/question.d4e5711b8d8f21a9763c.svg",
+    "static/media/exit.svg": "/diary-travel/static/media/exit.0b788788820e71218286.svg",
+    "static/media/logo.svg": "/diary-travel/static/media/logo.1b5a21826d48fc009937.svg",
+    "index.html": "/diary-travel/index.html",
+    "static/media/expand-alt-solid.svg": "/diary-travel/static/media/expand-alt-solid.10de849dc45f063c6ad5.svg",
+    "static/media/compress-alt-solid.svg": "/diary-travel/static/media/compress-alt-solid.e7ee2d51357f12445ff9.svg",
+    "main.b8b3f8c5.css.map": "/diary-travel/static/css/main.b8b3f8c5.css.map",
+    "main.aa295fe3.js.map": "/diary-travel/static/js/main.aa295fe3.js.map"
   },
   "entrypoints": [
-    "static/css/main.ce4334b6.css",
+    "static/css/main.b8b3f8c5.css",
     "static/js/main.aa295fe3.js"
   ]
 }
