@@ -1,26 +1,24 @@
 {
   "files": {
-    "main.css": "/static/css/main.f84b4b43.chunk.css",
-    "main.js": "/static/js/main.4e624b31.chunk.js",
-    "main.js.map": "/static/js/main.4e624b31.chunk.js.map",
-    "runtime-main.js": "/static/js/runtime-main.c4b9b764.js",
-    "runtime-main.js.map": "/static/js/runtime-main.c4b9b764.js.map",
-    "static/js/2.4437ffde.chunk.js": "/static/js/2.4437ffde.chunk.js",
-    "static/js/2.4437ffde.chunk.js.map": "/static/js/2.4437ffde.chunk.js.map",
-    "static/js/3.1084b2ab.chunk.js": "/static/js/3.1084b2ab.chunk.js",
-    "static/js/3.1084b2ab.chunk.js.map": "/static/js/3.1084b2ab.chunk.js.map",
+    "main.css": "/static/css/main.ce4334b6.css",
+    "main.js": "/static/js/main.aa295fe3.js",
+    "static/media/Rubik-Regular.ttf": "/static/media/Rubik-Regular.a4bece5c270c316c1c24.ttf",
+    "static/media/Rubik-Bold.ttf": "/static/media/Rubik-Bold.366b50ff64dedebe9f17.ttf",
+    "static/media/search.svg": "/static/media/search.ed129e9dd063df6c6d4d.svg",
+    "static/media/ArbelHagildaRegular.otf": "/static/media/ArbelHagildaRegular.9d84f404a30496655547.otf",
+    "static/media/ArbelHagildaBold.otf": "/static/media/ArbelHagildaBold.3207c7226ccce58c4851.otf",
+    "static/media/return.svg": "/static/media/return.7ffe5a9828ec9f282dad.svg",
+    "static/media/question.svg": "/static/media/question.d4e5711b8d8f21a9763c.svg",
+    "static/media/exit.svg": "/static/media/exit.0b788788820e71218286.svg",
     "index.html": "/index.html",
-    "static/css/main.f84b4b43.chunk.css.map": "/static/css/main.f84b4b43.chunk.css.map",
-    "static/js/2.4437ffde.chunk.js.LICENSE.txt": "/static/js/2.4437ffde.chunk.js.LICENSE.txt",
-    "static/js/main.4e624b31.chunk.js.LICENSE.txt": "/static/js/main.4e624b31.chunk.js.LICENSE.txt",
-    "static/media/AutoComplete.scss": "/static/media/search.ed129e9d.svg",
-    "static/media/TextFrame.scss": "/static/media/logo.1b5a2182.svg",
-    "static/media/App.scss": "/static/media/question.d4e5711b.svg"
+    "static/media/logo.svg": "/static/media/logo.1b5a21826d48fc009937.svg",
+    "static/media/expand-alt-solid.svg": "/static/media/expand-alt-solid.10de849dc45f063c6ad5.svg",
+    "static/media/compress-alt-solid.svg": "/static/media/compress-alt-solid.e7ee2d51357f12445ff9.svg",
+    "main.ce4334b6.css.map": "/static/css/main.ce4334b6.css.map",
+    "main.aa295fe3.js.map": "/static/js/main.aa295fe3.js.map"
   },
   "entrypoints": [
-    "static/js/runtime-main.c4b9b764.js",
-    "static/js/2.4437ffde.chunk.js",
-    "static/css/main.f84b4b43.chunk.css",
-    "static/js/main.4e624b31.chunk.js"
+    "static/css/main.ce4334b6.css",
+    "static/js/main.aa295fe3.js"
   ]
 }
